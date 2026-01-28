@@ -1,0 +1,7 @@
+{
+  "name": "Shemma神么玛-今天你是什么马",
+  "description": "An AI-powered personality diagnosis app that analyzes your avatar to determine what kind of 'Ma' (Horse/Person) you are.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

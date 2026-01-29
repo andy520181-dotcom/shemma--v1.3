@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* 防止首次加载闪烁 */
 #root {
@@ -40,39 +42,7 @@ body {
   overflow: hidden !important;
 }
 
-/* Tailwind自定义配置 */
-@theme {
-  /* 字体 */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
-
-  /* 自定义颜色 */
-  --color-primary: #f4af25;
-  --color-wechat-green: #07C160;
-  --color-ios-blue: #007AFF;
-  --color-ios-gray: #8E8E93;
-  --color-ios-bg: #F2F2F7;
-
-  /* 确保gray色阶存在 */
-  --color-gray-50: #F9FAFB;
-  --color-gray-100: #F3F4F6;
-  --color-gray-200: #E5E7EB;
-  --color-gray-300: #D1D5DB;
-  --color-gray-400: #9CA3AF;
-  --color-gray-500: #6B7280;
-  --color-gray-600: #4B5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1F2937;
-  --color-gray-900: #111827;
-
-  /* 自定义阴影 */
-  --shadow-ios-card: 0 12px 60px -15px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
-  --shadow-glow: 0 0 25px rgba(244, 175, 37, 0.2);
-
-  /* 动画 */
-  --animate-spin-slow: spin 3s linear infinite;
-  --animate-breathe: breathe 4s ease-in-out infinite;
-}
-
+/* 自定义动画 */
 @keyframes breathe {
 
   0%,

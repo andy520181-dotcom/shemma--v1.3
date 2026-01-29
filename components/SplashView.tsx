@@ -8,15 +8,15 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // 4.5秒后开始淡出（3秒淡入 + 1.5秒停留）
+        // 6秒后开始淡出（5秒淡入 + 1秒停留）
         const fadeTimer = setTimeout(() => {
             setFadeOut(true);
-        }, 4500);
+        }, 6000);
 
-        // 6秒后完全跳转（3秒淡入 + 1.5秒停留 + 1.5秒淡出）
+        // 7秒后完全跳转（5秒淡入 + 1秒停留 + 1秒淡出）
         const completeTimer = setTimeout(() => {
             onComplete();
-        }, 6000);
+        }, 7000);
 
         return () => {
             clearTimeout(fadeTimer);
@@ -25,9 +25,9 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     }, [onComplete]);
 
     return (
-        <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-[1500ms] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-[1000ms] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
             {/* Logo容器 */}
-            <div className="flex flex-col items-center animate-in fade-in duration-[3000ms]">
+            <div className="flex flex-col items-center animate-in fade-in duration-[5000ms]">
                 {/* 白色马头Logo - 调小尺寸 */}
                 <div className="w-24 h-24 flex items-center justify-center mb-8">
                     <svg

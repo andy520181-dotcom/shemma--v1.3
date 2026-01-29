@@ -160,7 +160,6 @@ const App: React.FC = () => {
               animation: 'spin 1s linear infinite'
             }}
           />
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>加载中...</p>
           <style>{`
             @keyframes spin {
               to { transform: rotate(360deg); }

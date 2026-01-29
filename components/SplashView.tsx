@@ -1,21 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface SplashViewProps {
     onComplete: () => void;
 }
 
 export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
-    useEffect(() => {
-        // 2.5秒后自动跳转到主页面
-        const timer = setTimeout(() => {
-            onComplete();
-        }, 2500);
+    const [fadeOut, setFadeOut] = useState(false);
 
-        return () => clearTimeout(timer);
+    useEffect(() => {
+        // 3秒后开始淡出
+        const fadeTimer = setTimeout(() => {
+            setFadeOut(true);
+        }, 3000);
+
+        // 3.5秒后完全跳转
+        const completeTimer = setTimeout(() => {
+            onComplete();
+        }, 3500);
+
+        return () => {
+            clearTimeout(fadeTimer);
+            clearTimeout(completeTimer);
+        };
     }, [onComplete]);
 
     return (
-        <div className="fixed inset-0 bg-white flex flex-col items-center justify-center">
+        <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-500 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
             {/* Logo容器 */}
             <div className="flex flex-col items-center animate-in fade-in duration-700">
                 {/* 蓝色圆形Logo */}

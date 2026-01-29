@@ -27,7 +27,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     return (
         <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-[1500ms] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
             {/* Logo容器 */}
-            <div className="flex flex-col items-center animate-in fade-in duration-[2000ms]">
+            <div className="flex flex-col items-center animate-in fade-in duration-[3000ms]">
                 {/* 白色马头Logo - 调小尺寸 */}
                 <div className="w-24 h-24 flex items-center justify-center mb-8">
                     <svg

@@ -8,15 +8,15 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // 3秒后开始淡出（1.5秒淡入 + 1.5秒停留）
+        // 3.5秒后开始淡出（2秒淡入 + 1.5秒停留）
         const fadeTimer = setTimeout(() => {
             setFadeOut(true);
-        }, 3000);
+        }, 3500);
 
-        // 4秒后完全跳转（1.5秒淡入 + 1.5秒停留 + 1秒淡出）
+        // 5秒后完全跳转（2秒淡入 + 1.5秒停留 + 1.5秒淡出）
         const completeTimer = setTimeout(() => {
             onComplete();
-        }, 4000);
+        }, 5000);
 
         return () => {
             clearTimeout(fadeTimer);
@@ -25,11 +25,11 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     }, [onComplete]);
 
     return (
-        <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-[1500ms] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
             {/* Logo容器 */}
-            <div className="flex flex-col items-center animate-in fade-in duration-1500">
-                {/* 白色马头Logo - 无背景圆 */}
-                <div className="w-32 h-32 flex items-center justify-center mb-8">
+            <div className="flex flex-col items-center animate-in fade-in duration-[2000ms]">
+                {/* 白色马头Logo - 调小尺寸 */}
+                <div className="w-24 h-24 flex items-center justify-center mb-8">
                     <svg
                         viewBox="0 0 986.65 995.37"
                         className="w-full h-full"
@@ -46,13 +46,13 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
                     </svg>
                 </div>
 
-                {/* 应用标题 */}
-                <h1 className="text-3xl font-medium text-black mb-2 tracking-wide">
+                {/* 应用标题 - 20px字号 */}
+                <h1 className="text-xl font-medium text-black mb-2 tracking-wide">
                     Shemma神么玛
                 </h1>
 
                 {/* 副标题 */}
-                <p className="text-base text-gray-400 font-light tracking-wider">
+                <p className="text-sm text-gray-400 font-light tracking-wider">
                     今天你是什么马
                 </p>
             </div>

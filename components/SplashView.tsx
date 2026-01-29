@@ -9,20 +9,20 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // 3秒后才显示启动页
+        // 2秒后才显示启动页
         const showTimer = setTimeout(() => {
             setShow(true);
-        }, 3000);
+        }, 2000);
 
-        // 5秒后开始淡出（3秒延迟 + 1秒淡入 + 1秒停留）
+        // 4秒后开始淡出（2秒延迟 + 1秒淡入 + 1秒停留）
         const fadeTimer = setTimeout(() => {
             setFadeOut(true);
-        }, 5000);
+        }, 4000);
 
-        // 6秒后完全跳转（3秒延迟 + 1秒淡入 + 1秒停留 + 1秒淡出）
+        // 5秒后完全跳转（2秒延迟 + 1秒淡入 + 1秒停留 + 1秒淡出）
         const completeTimer = setTimeout(() => {
             onComplete();
-        }, 6000);
+        }, 5000);
 
         return () => {
             clearTimeout(showTimer);

@@ -147,25 +147,6 @@ const App: React.FC = () => {
   if (!isReady) {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-white">
-        <div className="text-center">
-          {/* 使用内联样式确保在 Tailwind 未加载时也能显示 */}
-          <div
-            style={{
-              width: '64px',
-              height: '64px',
-              border: '4px solid #E5E5E5',
-              borderTopColor: '#0f52ba',
-              borderRadius: '50%',
-              margin: '0 auto 16px',
-              animation: 'spin 1s linear infinite'
-            }}
-          />
-          <style>{`
-            @keyframes spin {
-              to { transform: rotate(360deg); }
-            }
-          `}</style>
-        </div>
       </div>
     );
   }

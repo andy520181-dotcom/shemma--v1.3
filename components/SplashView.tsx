@@ -9,17 +9,17 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // 0.3秒后才显示启动页，避免突兀
+        // 3秒后才显示启动页
         const showTimer = setTimeout(() => {
             setShow(true);
-        }, 300);
+        }, 3000);
 
-        // 5秒后开始淡出（4秒淡入 + 1秒停留）
+        // 5秒后开始淡出（3秒延迟 + 1秒淡入 + 1秒停留）
         const fadeTimer = setTimeout(() => {
             setFadeOut(true);
         }, 5000);
 
-        // 6秒后完全跳转（4秒淡入 + 1秒停留 + 1秒淡出）
+        // 6秒后完全跳转（3秒延迟 + 1秒淡入 + 1秒停留 + 1秒淡出）
         const completeTimer = setTimeout(() => {
             onComplete();
         }, 6000);
@@ -31,7 +31,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
         };
     }, [onComplete]);
 
-    // 初始不显示，避免闪现
+    // 初始不显示
     if (!show) {
         return null;
     }
@@ -39,7 +39,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
     return (
         <div className={`fixed inset-0 bg-white flex flex-col items-center justify-center transition-opacity duration-[1000ms] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
             {/* Logo容器 */}
-            <div className="flex flex-col items-center animate-in fade-in duration-[4000ms]">
+            <div className="flex flex-col items-center animate-in fade-in duration-[1000ms]">
                 {/* 白色马头Logo - 调小尺寸 */}
                 <div className="w-24 h-24 flex items-center justify-center mb-8">
                     <svg

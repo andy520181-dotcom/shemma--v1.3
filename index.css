@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础样式 */
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+}
+
+/* 隐藏滚动条 - 更强制的样式 */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* 确保根元素有固定高度且无溢出 */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}

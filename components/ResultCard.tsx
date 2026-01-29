@@ -148,16 +148,18 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                 {/* Middle Content Wrapper - Centers content vertically - Flexible */}
                 <div className="flex-1 w-full flex flex-col items-center justify-center min-h-0">
 
-                    {/* Avatar Area - Fixed size to prevent distortion when scaled */}
-                    <div className="relative w-[280px] h-[280px] mb-8 rounded-full bg-white p-1 shadow-[0_0_35px_rgba(0,0,0,0.1)] ring-1 ring-gray-100 shrink-0">
-                        <div className="w-full h-full rounded-full overflow-hidden border border-gray-100 relative z-10">
-                            <img src={data.image} alt="Avatar" className="w-full h-full object-cover" />
+                    {/* Avatar Container - 独立容器确保头像区域不会被其他内容覆盖 */}
+                    <div className="w-full flex justify-center shrink-0 mb-8">
+                        <div className="relative w-[280px] h-[280px] rounded-full bg-white p-1 shadow-[0_0_35px_rgba(0,0,0,0.1)] ring-1 ring-gray-100">
+                            <div className="w-full h-full rounded-full overflow-hidden border border-gray-100 relative z-10">
+                                <img src={data.image} alt="Avatar" className="w-full h-full object-cover" />
+                            </div>
+                            {/* Inner ambient glow */}
+                            <div className="absolute inset-0 rounded-full blur-2xl bg-gray-100/80 -z-0"></div>
                         </div>
-                        {/* Inner ambient glow */}
-                        <div className="absolute inset-0 rounded-full blur-2xl bg-gray-100/80 -z-0"></div>
                     </div>
 
-                    {/* Result Text Area */}
+                    {/* Result Text Area - 独立容器确保文本不会覆盖头像 */}
                     <div className="text-center mb-6 w-full flex flex-col items-center shrink-0">
                         <h2 className="text-[#333333] text-[18px] mb-0 font-light tracking-tighter">[{data.nickname}]</h2>
                         {data.profession && (
@@ -194,7 +196,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                         </div>
                     </div>
 
-                    {/* Editable Quote */}
+                    {/* Editable Quote - 独立容器 */}
                     <div className="w-full px-2 text-center mt-1 flex justify-center relative shrink-0">
                         {isEditingQuote ? (
                             <textarea
@@ -223,7 +225,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                                 onContextMenu={(e) => e.preventDefault()}
                             >
                                 <p className="text-gray-400 text-lg leading-relaxed font-light">
-                                    “{data.quote}”
+                                    "{data.quote}"
                                 </p>
                             </div>
                         )}

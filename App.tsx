@@ -4,8 +4,12 @@ import { analyzeAvatar } from './services/geminiService';
 import { HomeView } from './components/HomeView';
 import { ResultView } from './components/ResultView';
 import { Toast } from './components/Toast';
+import { SplashView } from './components/SplashView';
 
 const App: React.FC = () => {
+  // 启动页状态
+  const [showSplash, setShowSplash] = useState<boolean>(true);
+
   // 资源加载状态
   const [isReady, setIsReady] = useState<boolean>(false);
 
@@ -165,6 +169,11 @@ const App: React.FC = () => {
         </div>
       </div>
     );
+  }
+
+  // 如果启动页还在显示
+  if (showSplash) {
+    return <SplashView onComplete={() => setShowSplash(false)} />;
   }
 
   return (

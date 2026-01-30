@@ -12,7 +12,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "GEN_WKD_001",
     "title": "班马",
-    "subtitle": "在工位很想你，但不在动物园，也不爱穿条纹。",
+    "subtitle": "一只上着普通班的普通马，略通一点人性。",
     "timeTag": "workday_normal",
     "jobTag": ["manager", "pm_operator", "professional", "general"]
   },
@@ -33,10 +33,76 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "GEN_OFF_002",
     "title": "神马",
-    "subtitle": "上班时是马，下班时是神。主打一个赛博身份切换自如。",
+    "subtitle": "上班时是马，下班时是神。",
     "timeTag": "off_work",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
+  {
+    "id": "GEN_OFF_003",
+    "title": "ok马",
+    "subtitle": "ok啊，都OK的，我反正刑呢。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_OFF_004",
+    "title": "屁屁马",
+    "subtitle": "跟着领导是真的省心，方向给的明白，活也干得踏实。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+
+  {
+    "id": "GEN_OFF_005",
+    "title": "骡马",
+    "subtitle": "条条大路通罗马，此路不通另寻踏马。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_WKD_002",
+    "title": "奴马",
+    "subtitle": "哦哟喂~领导吉祥。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_WKD_008",
+    "title": "木马",
+    "subtitle": "生性不爱笑，不通人性。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+
+  {
+    "id": "GEN_WKD_009",
+    "title": "踏马",
+    "subtitle": "每天都在问候TM但消息从未发出。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_WKD_010",
+    "title": "黄阿马",
+    "subtitle": "我是办公室最有想法的牛马，有事起奏，无事退朝。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_WKD_011",
+    "title": "刀马",
+    "subtitle": "每天上班唯一想做的事，狠狠地刀刀这个世界。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+  {
+    "id": "GEN_WKD_012",
+    "title": "胡马",
+    "subtitle": "在办公室遇到不懂的就胡言乱语。",
+    "timeTag": "off_work",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
+  },
+
   {
     "id": "PRO_OT_001",
     "title": "肝马",
@@ -52,23 +118,16 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "engineer", "general"]
   },
   {
-    "id": "PRO_WKD_002",
-    "title": "跑路马",
-    "subtitle": "一种写代码时经常幻想、但永远不敢执行的终极解决方案。",
-    "timeTag": "workday_normal",
-    "jobTag": ["programmer", "engineer", "general"]
-  },
-  {
     "id": "PRO_OT_002",
     "title": "救火马",
-    "subtitle": "哪里线上报警，哪里就有我。生产环境的守护者，头发的终结者。",
+    "subtitle": "哪里有报警，哪里就有我。",
     "timeTag": "overtime_night",
     "jobTag": ["programmer", "engineer", "manager", "general"]
   },
   {
     "id": "PRO_MON_001",
     "title": "重启马",
-    "subtitle": "每周一早上，都要花两小时给大脑和开发环境执行一次艰难的重启。",
+    "subtitle": "每周一早上，都要花一上午时间给大脑执行一次艰难的重启。",
     "timeTag": "monday",
     "jobTag": ["programmer", "designer", "pm_operator", "engineer", "general"]
   },
@@ -101,23 +160,16 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
   {
-    "id": "PM_OT_001",
-    "title": "撕烤马",
-    "subtitle": "深夜不是用来睡觉的，是用来“撕”需求优先级和“烤”虑项目风险的。",
-    "timeTag": "overtime_night",
-    "jobTag": ["pm_operator", "manager", "general"]
-  },
-  {
     "id": "PM_WKD_002",
     "title": "开会马",
-    "subtitle": "日程表上唯一的确定性：永远有下一个会。沟通永动机，实干绊脚石。",
+    "subtitle": "日程表上唯一的确定性：永远有下一个会。",
     "timeTag": "workday_normal",
     "jobTag": ["pm_operator", "manager", "professional", "general"]
   },
   {
     "id": "PM_OFF_001",
     "title": "背锅马",
-    "subtitle": "项目成功了是团队的，出问题了是我的。锅的重量，是职场的体重。",
+    "subtitle": "项目成功了是团队的，出问题了是我的。",
     "timeTag": "off_work",
     "jobTag": ["pm_operator", "manager", "general"]
   },
@@ -166,27 +218,20 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "PRO_WEEKEND_OT_001",
     "title": "上线马",
-    "subtitle": "“为了系统的稳定，周末的约会/游戏/睡眠，都是可以牺牲的”——发布宣言。",
+    "subtitle": "“为了系统的稳定，周末的约会/游戏/睡眠，都是可以牺牲的”。",
     "timeTag": "overtime_weekend",
     "jobTag": ["programmer", "engineer", "pm_operator", "general"]
   },
   {
     "id": "GEN_OT_001",
     "title": "充电马",
-    "subtitle": "白天电量耗尽，深夜靠外卖和短视频勉强回血5%，撑不到明天太阳升起。",
+    "subtitle": "白天电量耗尽，深夜靠外卖和短视频勉强回血5%。",
     "timeTag": "overtime_night",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "PM_FRI_001",
-    "title": "恐慌马",
-    "subtitle": "每周五下午都像开盲盒，祈祷不要开出‘紧急需求’或‘周末线上故障’大礼包。",
-    "timeTag": "friday_evening",
-    "jobTag": ["pm_operator", "manager", "programmer", "engineer", "general"]
-  },
-  {
     "id": "MRK_OFF_001",
-    "title": "24小时待机马",
+    "title": "待机马",
     "subtitle": "微信置顶全是客户群，洗澡都要把手机带进浴室，生怕错过一个亿（的订单）。",
     "timeTag": "off_work",
     "jobTag": ["marketer", "manager", "professional", "general"]
@@ -199,19 +244,22 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "PRO_WKD_003",
-    "title": "引擎马",
-    "subtitle": "我的编程能力，90%体现在对搜索引擎关键词的精准把握上。",
-    "timeTag": "workday_normal",
-    "jobTag": ["programmer", "engineer", "designer", "pm_operator", "general"]
-  },
-  {
     "id": "DES_WKD_002",
-    "title": "版权刺客马",
+    "title": "版权马",
     "subtitle": "找图两小时，用时五分钟，剩下的时间全花在确认‘这到底能不能商用’上。",
     "timeTag": "workday_normal",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
+
+  {
+    "id": "DES_WKD_006",
+    "title": "苹什马",
+    "subtitle": "凭什么?这个方案通不过行吧，甲方爸爸你说了算。",
+    "timeTag": "workday_normal",
+    "jobTag": ["designer", "pm_operator", "marketer", "general"]
+  },
+
+
   {
     "id": "PM_WKD_003",
     "title": "中转马",
@@ -234,8 +282,8 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "GEN_OFF_003",
-    "title": "下班失联马",
+    "id": "GEN_OFF_006",
+    "title": "失联马",
     "subtitle": "走出公司大门的那一刻，所有工作群消息自动进入‘消息免打扰’的平行宇宙。",
     "timeTag": "off_work",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
@@ -246,13 +294,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "subtitle": "一生行走江湖，只为寻找那个老板说“我好像在哪见过”的免费可商用字体。",
     "timeTag": "overtime_night",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
-  },
-  {
-    "id": "PM_MON_001",
-    "title": "焦虑马",
-    "subtitle": "每周一早上，都要把上周的‘摸鱼’和‘救火’，编织成一份闪闪发光的功劳簿。",
-    "timeTag": "monday",
-    "jobTag": ["pm_operator", "manager", "marketer", "general"]
   },
   {
     "id": "MRK_HOL_001",
@@ -269,53 +310,11 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "designer", "pm_operator", "engineer", "professional", "general"]
   },
   {
-    "id": "PRO_FRI_001",
-    "title": "恐惧马",
-    "subtitle": "提交代码像交试卷，等待同事 review 的心情，像等待一场公开处刑。",
-    "timeTag": "friday_evening",
-    "jobTag": ["programmer", "engineer", "general"]
-  },
-  {
-    "id": "DES_WKD_003",
-    "title": "模特马",
-    "subtitle": "毕生作品，大多以躺在精美样机里的形态，出现在客户的提案PPT里。",
-    "timeTag": "workday_normal",
-    "jobTag": ["designer", "pm_operator", "marketer", "general"]
-  },
-  {
     "id": "PM_OT_002",
     "title": "挖掘马",
-    "subtitle": "从客户一句模糊的‘想要个厉害的’，挖掘出五十页需求文档，我愿称自己为职场考古学家。",
+    "subtitle": "从客户一句模糊的‘想要个厉害的’，挖掘出十页需求文档。",
     "timeTag": "overtime_night",
     "jobTag": ["pm_operator", "marketer", "general"]
-  },
-  {
-    "id": "MRK_OT_002",
-    "title": "数据马",
-    "subtitle": "KPI 如山倒。阅读量、点击率、转化数…每一个数字背后，都是刷新的手指和焦虑的心。",
-    "timeTag": "overtime_night",
-    "jobTag": ["marketer", "pm_operator", "general"]
-  },
-  {
-    "id": "GEN_WEEKEND_OT_002",
-    "title": "被抓马",
-    "subtitle": "周末的快乐，总结束于一句‘不好意思，有个急事…’。计划？不存在的。",
-    "timeTag": "overtime_weekend",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  },
-  {
-    "id": "PRO_HOL_001",
-    "title": "稻草马",
-    "subtitle": "节后归来，不仅要处理新需求，还要偿还假期前疯狂欠下的技术债。骆驼背上最后一根稻草。",
-    "timeTag": "after_holiday",
-    "jobTag": ["programmer", "engineer", "pm_operator", "general"]
-  },
-  {
-    "id": "DES_HOL_001",
-    "title": "赛博马",
-    "subtitle": "放了个假回来，发现流行的设计风格又变了。我还在复古，世界已经赛博。",
-    "timeTag": "after_holiday",
-    "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
   {
     "id": "GEN_WKD_005",
@@ -333,31 +332,17 @@ export const HORSES_DATA: HorseEntry[] = [
   },
   {
     "id": "GEN_MON_002",
-    "title": "周一马",
+    "title": "一马",
     "subtitle": "周一不想上班的牛马。",
     "timeTag": "monday",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "PRO_WKD_004",
-    "title": "复制粘贴马",
-    "subtitle": "我的编程艺术，在于精准地找到那段能用的代码，然后优雅地复制粘贴。",
-    "timeTag": "workday_normal",
-    "jobTag": ["programmer", "pm_operator", "general"]
-  },
-  {
     "id": "DES_WKD_004",
     "title": "像素马",
-    "subtitle": "能一眼看出两个图层差了一个像素，却看不清自己日益后移的发际线。",
+    "subtitle": "能一眼看出两个图层差了几个像素，却看不清自己日益后移的发际线。",
     "timeTag": "workday_normal",
     "jobTag": ["designer", "engineer", "general"]
-  },
-  {
-    "id": "PM_WKD_004",
-    "title": "驯兽马",
-    "subtitle": "主要工作是挥舞着Deadline的鞭子，试图让进度这头野兽跑得快一点。",
-    "timeTag": "workday_normal",
-    "jobTag": ["pm_operator", "manager", "general"]
   },
   {
     "id": "MRK_WKD_004",
@@ -365,13 +350,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "subtitle": "把客户的每个普通想法，都夸成是改变行业的 genius idea。",
     "timeTag": "workday_normal",
     "jobTag": ["marketer", "pm_operator", "general"]
-  },
-  {
-    "id": "GEN_OT_002",
-    "title": "夜宵马",
-    "subtitle": "加班唯一的慰藉，是楼下那家永远亮着灯的便利店和热量爆炸的关东煮。",
-    "timeTag": "overtime_night",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "PRO_OT_004",
@@ -397,7 +375,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "MRK_OT_003",
     "title": "面具马",
-    "subtitle": "线上聊天‘宝子~’，线下见面‘总~’。热情是职业假面，回家后电量负100%。",
+    "subtitle": "线上聊天‘宝子~’，线下见面‘总~’。",
     "timeTag": "overtime_night",
     "jobTag": ["marketer", "professional", "general"]
   },
@@ -409,25 +387,11 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "PRO_FRI_002",
-    "title": "埋雷马",
-    "subtitle": "为了准时下班，在代码里留下一些‘精妙’的注释：‘此处逻辑待优化，详见下个迭代。’",
-    "timeTag": "friday_evening",
-    "jobTag": ["programmer", "engineer", "pm_operator", "general"]
-  },
-  {
     "id": "DES_FRI_002",
     "title": "跑路马",
     "subtitle": "周五下班前十分钟发出设计稿，然后火速关闭一切通讯工具，深藏功与名。",
     "timeTag": "friday_evening",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
-  },
-  {
-    "id": "ALL_WEEKEND_OT_001",
-    "title": "天选打工马",
-    "subtitle": "当全世界都在享受阳光和沙发时，我被命运选中，独自守护公司的服务器与KPI。",
-    "timeTag": "overtime_weekend",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "GEN_HOL_002",
@@ -444,13 +408,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "engineer", "manager", "general"]
   },
   {
-    "id": "GEN_NOON_003",
-    "title": "昏迷马",
-    "subtitle": "趴在工位上午睡十分钟，醒来时需要花五分钟确认自己是谁、在哪、要干什么。",
-    "timeTag": "workday_noon",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  },
-  {
     "id": "PM_NOON_001",
     "title": "咖啡马",
     "subtitle": "午后的会议，全靠早上的 Double Espresso 和下午的冰美式轮流吊着一口仙气。",
@@ -465,13 +422,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["marketer", "pm_operator", "manager", "professional", "general"]
   },
   {
-    "id": "PRO_WKD_005",
-    "title": "技术马",
-    "subtitle": "热衷于学习各种新技术框架，像松鼠囤积坚果，虽然大多数永远用不上。",
-    "timeTag": "workday_normal",
-    "jobTag": ["programmer", "engineer", "general"]
-  },
-  {
     "id": "DES_WKD_005",
     "title": "素材马",
     "subtitle": "电脑里存了10个T的设计素材，每次做新项目时依然觉得‘没有合适的’。",
@@ -479,23 +429,9 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
   {
-    "id": "GEN_OT_003",
-    "title": "打车马",
-    "subtitle": "深夜加班后，一边心疼打车费，一边精算如何贴发票才能刚好凑满报销额度。",
-    "timeTag": "overtime_night",
-    "jobTag": ["professional", "manager", "pm_operator", "marketer", "general"]
-  },
-  {
-    "id": "PM_OT_004",
-    "title": "进度马",
-    "subtitle": "拥有神秘力量：能将‘刚开完需求评审会’的状态，在周报里描述为‘已完成30%’。",
-    "timeTag": "overtime_night",
-    "jobTag": ["pm_operator", "manager", "marketer", "general"]
-  },
-  {
     "id": "MRK_OFF_002",
     "title": "广告马",
-    "subtitle": "私人朋友圈早已沦陷，每隔三条就是公司广告。朋友问我：你是不是被绑架了？",
+    "subtitle": "私人朋友圈早已沦陷，每隔三条就是公司广告。",
     "timeTag": "off_work",
     "jobTag": ["marketer", "pm_operator", "general"]
   },
@@ -509,23 +445,9 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "PRO_MON_002",
     "title": "梦游马",
-    "subtitle": "每周一开晨会，身体在工区，大脑还在周末的峡谷里遨游。",
+    "subtitle": "每周一开晨会，身体在工区，大脑还在梦游。",
     "timeTag": "monday",
     "jobTag": ["programmer", "designer", "pm_operator", "engineer", "professional", "manager", "general"]
-  },
-  {
-    "id": "DES_MON_002",
-    "title": "枯竭马",
-    "subtitle": "周一的大脑像被周末晒干的沙漠，挤不出一点创意的水分。",
-    "timeTag": "monday",
-    "jobTag": ["designer", "pm_operator", "marketer", "general"]
-  },
-  {
-    "id": "GEN_FRI_003",
-    "title": "失聪马",
-    "subtitle": "周五下午，自动过滤领导说的‘这个不急，周末有空看看’等危险词汇。",
-    "timeTag": "friday_evening",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "ALL_HOL_001",
@@ -534,13 +456,7 @@ export const HORSES_DATA: HorseEntry[] = [
     "timeTag": "off_work",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
-  {
-    "id": "PRO_WEEKEND_OT_002",
-    "title": "炼丹马",
-    "subtitle": "周末的使命：守着自动化部署和测试脚本，像道士炼丹一样，祈祷这一次发布成功。",
-    "timeTag": "overtime_weekend",
-    "jobTag": ["programmer", "engineer", "pm_operator", "general"]
-  },
+
   {
     "id": "DES_WEEKEND_OT_001",
     "title": "宝宝马",
@@ -570,14 +486,7 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["pm_operator", "manager", "general"]
   },
   {
-    "id": "PRO_OT_005",
-    "title": "考古马",
-    "subtitle": "深夜，在浩如烟海的系统日志里，拿着放大镜寻找那个导致崩溃的远古bug化石。",
-    "timeTag": "overtime_night",
-    "jobTag": ["programmer", "engineer", "general"]
-  },
-  {
-    "id": "GEN_OFF_005",
+    "id": "GEN_OFF_007",
     "title": "通勤马",
     "subtitle": "早晚高峰的地铁就是我的战场，练就了金鸡独立刷手机、夹缝求生睡回笼觉的神功。",
     "timeTag": "off_work",
@@ -586,7 +495,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "DES_OFF_001",
     "title": "审美PTSD马",
-    "subtitle": "下班后看到丑logo、排版混乱的传单会生理性不适，但又忍不住职业病发作去分析。",
+    "subtitle": "看到丑logo、排版混乱的传单会生理性不适，但又忍不住职业病发作去分析。",
     "timeTag": "off_work",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
@@ -598,10 +507,9 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["marketer", "pm_operator", "general"]
   },
   {
-    "id": "GEN_WKD_008",
+    "id": "GEN_WKD_013",
     "title": "养生朋克马",
     "subtitle": "一边熬夜加班，一边泡枸杞水；一边吃油腻外卖，一边吃护肝片。主打一个对冲。",
     "timeTag": "workday_normal",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  }
-];
+  }];

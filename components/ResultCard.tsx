@@ -99,16 +99,16 @@ export const ResultCard: React.FC<ResultCardProps> = ({
 
     return (
         <div
-            className={`w-full h-full overflow-hidden flex flex-col relative transition-all duration-300 ease-in-out ${readOnly ? '' : 'rounded-[2.5rem] shadow-ios-card border border-white/50'} ${readOnly ? 'bg-white' : className ?? 'bg-white'}`}
+            className={`w-full h-full overflow-hidden flex flex-col relative transition-all duration-300 ease-in-out ${readOnly ? 'rounded-[2.5rem] border border-[#E5E5E5]' : 'rounded-[2.5rem] shadow-ios-card border border-white/50'} ${readOnly ? 'bg-white' : className ?? 'bg-white'}`}
         >
             {/* Container Padding - Flex column, justify-between */}
-            <div className="flex flex-col items-center w-full p-6 h-full justify-between">
+            <div className="flex flex-col items-center w-full pt-2 px-6 pb-6 h-full justify-between">
 
                 {/* Header Row */}
-                <div className="w-full flex items-center justify-between shrink-0">
+                <div className="w-full flex items-center justify-between shrink-0" style={{ marginTop: readOnly ? '0px' : '10px' }}>
 
                     {/* Logo Container - New combined logo with text */}
-                    <div className="flex items-center justify-center h-[44.93px]">
+                    <div className={`flex items-center justify-center ${readOnly ? 'h-[42px]' : 'h-[38.4px]'}`}>
                         <svg
                             viewBox="0 0 202.59 48.13"
                             className="h-full"
@@ -127,7 +127,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                             <path className="cls-1" d="M34.93,17.47c0,4.31-1.56,8.26-4.15,11.31-3.2,3.77-7.98,6.17-13.32,6.17-2.59,0-5.04-.56-7.25-1.57C4.19,30.62,0,24.53,0,17.47,0,7.82,7.82,0,17.46,0s17.46,7.82,17.46,17.47Z" />
                             <path className="cls-2" d="M34.93,18.25c0,4.29-1.56,8.21-4.15,11.24-.56-1.55-1.6-2.68-3-3.5-.88-.52-1.85-.79-2.86-.94-1.1-.17-2.21-.23-3.31-.35-.91-.1-1.8-.26-2.62-.68-1.24-.62-2-1.6-2.17-2.99-.16-1.28,.06-2.5,.63-3.66,.09-.17,.2-.33,.33-.47,.09-.1,.09-.19,0-.30-.33-.43-.51-.92-.47-1.47,0-.09,.02-.18,.04-.31,.31,1.14,.96,1.93,2.04,2.34,.45,.17,.91,.25,1.39,.24,1.01-.02,1.89,.35,2.74,.83,.26,.15,.45,.37,.53,.66,.09,.33,.3,.5,.62,.57,.37,.08,.72,.22,1.1,.23,.32,0,.58-.11,.8-.33,.1-.1,.21-.2,.35-.24,.1-.03,.17-.09,.22-.17,.28-.55,.52-1.11,.53-1.75,0-.26-.08-.47-.26-.65-1.19-1.14-2.09-2.5-2.97-3.88-.07-.12-.12-.23-.07-.37,.04-.12,.04-.25,.04-.37,0-.17-.06-.30-.18-.41-.65-.59-1.23-1.24-1.79-1.91-.12-.15-.26-.28-.39-.42-.09-.08-.10-.15-.05-.26,.32-.62,.53-1.30,.60-2.07,0,0,0-.02,0-.04,0,0,.03-.30-.03-.36-.09-.09-.39,.08-.43,.10-.92,.50-1.93,1.87-1.93,1.87,0,0,.27-2.11,.17-2.62-.05-.28-.16-.34-.37-.16-.68,.54-1.33,1.21-1.91,2.07-.06,.09-.10,.16-.23,.17-1.41,.07-2.71,.52-3.97,1.14-.42,.21-.83,.46-1.21,.74-.05,.03-.11,.05-.13,.16,.83-.20,1.66-.35,2.50-.33-2.31,1.02-4.30,2.49-5.98,4.37-.83,.92-2.09,3.04-2.09,3.04,0,0,2.01-1.39,3.18-1.92-.26,.31-.52,.62-.77,.93-1.18,1.45-2.20,2.98-2.88,4.73-.19,.49-.35,.98-.46,1.49-.02,.08,1.70-1.83,2.77-2.65,.01,0-.17,.38-.28,.55-.81,1.31-1.52,2.66-1.92,4.16-.16,.59-.29,1.95-.22,1.97,.07,.02,1.16-2.20,1.89-3.12,.04-.05,.08-.09,.11-.13-.63,3.90-1.05,7.96,1.80,11.07C4.16,31.55,0,25.28,0,18.25,0,8.66,7.82,.88,17.46,.88s17.46,7.78,17.46,17.37Z" />
                             <text className="cls-3" transform="translate(44.97 25.65)">
-                                <tspan x="0" y="0">Shemma神么玛</tspan>
+                                <tspan x="0" y="0">SHEMMA神么玛</tspan>
                             </text>
                         </svg>
                     </div>
@@ -146,10 +146,10 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                 </div>
 
                 {/* Middle Content Wrapper - Centers content vertically - Flexible */}
-                <div className="flex-1 w-full flex flex-col items-center justify-center min-h-0">
+                <div className="flex-1 w-full flex flex-col items-center justify-center min-h-0" style={{ paddingTop: '45px' }}>
 
                     {/* Avatar Container - 独立容器确保头像区域不会被其他内容覆盖 */}
-                    <div className="w-full flex justify-center shrink-0 mb-8">
+                    <div className="w-full flex justify-center shrink-0 mb-4">
                         <div className="relative w-[280px] h-[280px] rounded-full bg-white p-1 shadow-[0_0_35px_rgba(0,0,0,0.1)] ring-1 ring-gray-100">
                             <div className="w-full h-full rounded-full overflow-hidden border border-gray-100 relative z-10">
                                 <img src={data.image} alt="Avatar" className="w-full h-full object-cover" />
@@ -160,7 +160,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                     </div>
 
                     {/* Result Text Area - 独立容器确保文本不会覆盖头像 */}
-                    <div className="text-center mb-6 w-full flex flex-col items-center shrink-0">
+                    <div className="text-center mb-3 w-full flex flex-col items-center shrink-0">
                         <h2 className="text-[#333333] text-[18px] mb-0 font-light tracking-tighter">[{data.nickname}]</h2>
                         {data.profession && (
                             <p className="text-[#333333] text-sm mb-2 font-light tracking-tight">{data.profession}</p>
@@ -197,7 +197,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                     </div>
 
                     {/* Editable Quote - 独立容器 */}
-                    <div className="w-full px-2 text-center mt-1 flex justify-center relative shrink-0">
+                    <div className="w-full px-2 text-center mt-0 flex justify-center relative shrink-0">
                         {isEditingQuote ? (
                             <textarea
                                 ref={quoteInputRef}

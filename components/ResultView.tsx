@@ -41,8 +41,8 @@ export const ResultView: React.FC<ResultViewProps> = ({
         // 生成截图
         const canvas = await html2canvas(captureRef.current, {
           useCORS: true,
-          scale: 1,
-          backgroundColor: '#0F52BA',
+          scale: 2,
+          backgroundColor: '#ffffff',
           logging: false,
         });
 
@@ -77,7 +77,7 @@ export const ResultView: React.FC<ResultViewProps> = ({
         } else {
           // 在 Web 浏览器上下载
           const link = document.createElement('a');
-          link.download = `Shemma_Result_${Date.now()}.png`;
+          link.download = `SHEMMA_Result_${Date.now()}.png`;
           link.href = canvas.toDataURL('image/png');
           link.click();
 
@@ -160,42 +160,33 @@ export const ResultView: React.FC<ResultViewProps> = ({
 
 
 
-      {/* Hidden Capture Stage for html2canvas */}
       <div style={{ position: 'fixed', left: '-9999px', top: 0, zIndex: -1 }}>
         <div
           ref={captureRef}
           style={{
             width: '1080px',
             height: '1920px',
-            backgroundColor: '#0F52BA',
+            backgroundColor: '#ffffff',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            padding: '60px'
+            paddingTop: '80px',
+            paddingLeft: '60px',
+            paddingRight: '60px'
           }}
         >
-          {/* 外层边框容器 */}
+          {/* 直接渲染缩放的ResultCard */}
           <div style={{
-            width: '960px',
-            height: '1800px',
-            border: '2px solid #E5E5E5',
-            borderRadius: '100px',
-            overflow: 'hidden',
-            backgroundColor: '#ffffff'
+            width: '360px',
+            height: '675px',
+            transform: 'scale(2.67)',
+            transformOrigin: 'top center'
           }}>
-            {/* 内层缩放容器 - 使用手机屏幕尺寸并缩放，保持视觉比例一致 */}
-            <div style={{
-              width: '360px',
-              height: '675px',
-              transform: 'scale(2.67)',
-              transformOrigin: 'top left'
-            }}>
-              <ResultCard
-                data={data}
-                readOnly={true}
-                className="w-full h-full"
-              />
-            </div>
+            <ResultCard
+              data={data}
+              readOnly={true}
+              className="w-full h-full"
+            />
           </div>
         </div>
       </div>

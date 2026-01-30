@@ -61,6 +61,31 @@ export const HomeView: React.FC<HomeViewProps> = ({
     }
   }, [isEditingProfession]);
 
+  // 自动裁剪图片为正方形（优化版）
+  const cropToSquare = async (dataUrl: string): Promise<string> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const size = Math.min(img.width, img.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+
+        // 禁用alpha通道加速渲染
+        const ctx = canvas.getContext('2d', { alpha: false })!;
+
+        const x = (img.width - size) / 2;
+        const y = (img.height - size) / 2;
+
+        ctx.drawImage(img, x, y, size, size, 0, 0, size, size);
+
+        // 使用JPEG格式，质量85，极速处理
+        resolve(canvas.toDataURL('image/jpeg', 0.85));
+      };
+      img.src = dataUrl;
+    });
+  };
+
   // 显示自定义选择菜单
   const handleAvatarClick = () => {
     console.log('=== 头像点击事件触发 ===');
@@ -73,7 +98,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
     console.log('开始调用相机...');
     try {
       const photo = await Camera.getPhoto({
-        quality: 90,
+        quality: 100,
         source: CameraSource.Camera,
         resultType: CameraResultType.DataUrl,
       });
@@ -81,8 +106,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
       console.log('拍照完成:', photo);
 
       if (photo.dataUrl) {
-        console.log('开始处理照片数据...');
-        const response = await fetch(photo.dataUrl);
+        console.log('开始裁剪照片为正方形...');
+        const croppedDataUrl = await cropToSquare(photo.dataUrl);
+        console.log('裁剪完成，开始处理照片数据...');
+        const response = await fetch(croppedDataUrl);
         const blob = await response.blob();
         const file = new File([blob], 'camera-photo.jpg', { type: 'image/jpeg' });
         console.log('照片处理完成，调用 onImageSelect');
@@ -99,7 +126,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
     console.log('开始打开相册...');
     try {
       const photo = await Camera.getPhoto({
-        quality: 90,
+        quality: 100,
         source: CameraSource.Photos,
         resultType: CameraResultType.DataUrl,
       });
@@ -107,8 +134,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
       console.log('照片选择完成:', photo);
 
       if (photo.dataUrl) {
-        console.log('开始处理照片数据...');
-        const response = await fetch(photo.dataUrl);
+        console.log('开始裁剪照片为正方形...');
+        const croppedDataUrl = await cropToSquare(photo.dataUrl);
+        console.log('裁剪完成，开始处理照片数据...');
+        const response = await fetch(croppedDataUrl);
         const blob = await response.blob();
         const file = new File([blob], 'library-photo.jpg', { type: 'image/jpeg' });
         console.log('照片处理完成，调用 onImageSelect');
@@ -135,7 +164,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Brand Header - Fixed height */}
       <div className="pt-[58px] pb-2 w-full flex justify-center items-center z-20 shrink-0">
         <h1 className="text-[20px] text-black font-bold tracking-tight opacity-80">
-          Shemma神么玛
+          SHEMMA神么玛
         </h1>
       </div>
 
@@ -224,7 +253,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         {/* Centered Avatar - 使用固定尺寸避免依赖动态计算 */}
         <div className="flex-grow flex flex-col items-center justify-center" style={{ minHeight: '300px', paddingBottom: '32px' }}>
           {/* Avatar Upload Section */}
-          <div className="flex flex-col items-center justify-center w-full" style={{ marginTop: '-100px' }}>
+          <div className="flex flex-col items-center justify-center w-full" style={{ marginTop: '-130px' }}>
             {/* Fixed 280px Container - 固定尺寸确保布局稳定并与结果页一致 */}
             <div className="animate-breathe relative flex items-center justify-center" style={{ width: '280px', height: '280px' }}>
               <div

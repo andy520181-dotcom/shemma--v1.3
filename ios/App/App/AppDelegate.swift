@@ -8,9 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // NOTE: 不再在启动时清除缓存，这会导致首次加载资源不完整
-        // 如果需要清除缓存，应该在特定场景下手动触发，而不是每次启动
-        // clearWebViewCache()
+        // 临时启用：每次启动清除缓存以确保加载最新代码
+        clearWebViewCache()
         
         // Override point for customization after application launch.
         return true

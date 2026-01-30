@@ -33,7 +33,7 @@ export const ShareView: React.FC<ShareViewProps> = ({ data, onCancel, onPost }) 
                     <textarea
                         className="w-full bg-transparent border-none p-0 focus:ring-0 text-[17px] text-black leading-relaxed resize-none min-h-[80px] font-light placeholder-gray-300"
                         placeholder="这一刻的想法..."
-                        defaultValue={`原来我真的是${data.fullTitle}本码... @Shemma神么玛`}
+                        defaultValue={`原来我真的是${data.fullTitle}本码... @SHEMMA神么玛`}
                     />
                 </div>
 

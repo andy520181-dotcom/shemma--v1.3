@@ -175,7 +175,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="w-full flex flex-col items-start mt-4 pl-1 relative z-10 shrink-0">
 
           {/* Row 1: Nickname */}
-          <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px', paddingLeft: '5px' }}>
+          <div className="flex flex-row items-center gap-3 mb-[18px]" style={{ height: '32px', paddingLeft: '5px' }}>
             <span className="text-[14px] font-light text-gray-400">昵称</span>
 
             <div className="flex items-center relative h-full">

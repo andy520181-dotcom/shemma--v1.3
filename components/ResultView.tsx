@@ -168,19 +168,20 @@ export const ResultView: React.FC<ResultViewProps> = ({
             height: '1920px',
             backgroundColor: '#ffffff',
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: '80px',
+            paddingTop: '60px',
             paddingLeft: '60px',
-            paddingRight: '60px'
+            paddingRight: '60px',
+            paddingBottom: '60px'
           }}
         >
           {/* 直接渲染缩放的ResultCard */}
           <div style={{
             width: '360px',
             height: '675px',
-            transform: 'scale(2.67)',
-            transformOrigin: 'top center'
+            transform: 'scale(2.667)',
+            transformOrigin: 'center'
           }}>
             <ResultCard
               data={data}

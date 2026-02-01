@@ -105,10 +105,10 @@ export const ResultCard: React.FC<ResultCardProps> = ({
             <div className="flex flex-col items-center w-full pt-2 px-6 pb-6 h-full justify-between">
 
                 {/* Header Row */}
-                <div className="w-full flex items-center justify-between shrink-0" style={{ marginTop: readOnly ? '0px' : '10px' }}>
+                <div className="w-full flex items-center justify-between shrink-0" style={{ marginTop: readOnly ? '0px' : '20px' }}>
 
                     {/* Logo Container - New combined logo with text */}
-                    <div className={`flex items-center justify-center ${readOnly ? 'h-[42px]' : 'h-[38.4px]'}`}>
+                    <div className={`flex items-center justify-center ${readOnly ? 'h-[32px]' : 'h-[38.4px]'}`}>
                         <svg
                             viewBox="0 0 202.59 48.13"
                             className="h-full"
@@ -145,27 +145,26 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                     )}
                 </div>
 
-                {/* Middle Content Wrapper - Centers content vertically - Flexible */}
-                <div className="flex-1 w-full flex flex-col items-center justify-center min-h-0" style={{ paddingTop: '45px' }}>
+                {/* Middle Content Wrapper - 固定定位而非居中 */}
+                <div className="w-full flex flex-col items-center justify-start min-h-0" style={{ paddingTop: '120px' }}>
 
-                    {/* Avatar Container - 独立容器确保头像区域不会被其他内容覆盖 */}
-                    <div className="w-full flex justify-center shrink-0 mb-4">
-                        <div className="relative w-[280px] h-[280px] rounded-full bg-white p-1 shadow-[0_0_35px_rgba(0,0,0,0.1)] ring-1 ring-gray-100">
-                            <div className="w-full h-full rounded-full overflow-hidden border border-gray-100 relative z-10">
-                                <img src={data.image} alt="Avatar" className="w-full h-full object-cover" />
-                            </div>
-                            {/* Inner ambient glow */}
-                            <div className="absolute inset-0 rounded-full blur-2xl bg-gray-100/80 -z-0"></div>
-                        </div>
-                    </div>
-
-                    {/* Result Text Area - 独立容器确保文本不会覆盖头像 */}
-                    <div className="text-center mb-3 w-full flex flex-col items-center shrink-0">
+                    {/* 昵称和职业 - 移到头像上方，负margin向上移动 */}
+                    <div className="text-center mb-1 w-full flex flex-col items-center shrink-0 relative z-10" style={{ marginTop: '-120px' }}>
                         <h2 className="text-[#333333] text-[18px] mb-0 font-light tracking-tighter">[{data.nickname}]</h2>
                         {data.profession && (
                             <p className="text-[#333333] text-sm mb-2 font-light tracking-tight">{data.profession}</p>
                         )}
+                    </div>
 
+                    {/* Avatar Container - 独立容器确保头像区域不会被其他内容覆盖 */}
+                    <div className="w-full flex justify-center shrink-0 mb-4" style={{ marginTop: '20px' }}>
+                        <div className="relative w-[260px] h-[260px] rounded-full overflow-hidden border-[8px] border-gray-50 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)]">
+                            <img src={data.image} alt="Avatar" className="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    {/* Result Text Area - 诊断类型 */}
+                    <div className="text-center mb-3 w-full flex flex-col items-center shrink-0">
                         {/* Editable Type/Title */}
                         <div className="relative min-w-[50%] flex justify-center mt-1">
                             {isEditingType ? (

@@ -44,13 +44,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "timeTag": "off_work",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
-  {
-    "id": "GEN_OFF_004",
-    "title": "屁屁马",
-    "subtitle": "跟着领导是真的省心，方向给的明白，活也干得踏实。",
-    "timeTag": "off_work",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  },
 
   {
     "id": "GEN_OFF_005",
@@ -116,27 +109,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "subtitle": "生活处处在找我的bug，但我本人就是那个最大的bug。",
     "timeTag": "workday_normal",
     "jobTag": ["programmer", "engineer", "general"]
-  },
-  {
-    "id": "PRO_OT_002",
-    "title": "救火马",
-    "subtitle": "哪里有报警，哪里就有我。",
-    "timeTag": "overtime_night",
-    "jobTag": ["programmer", "engineer", "manager", "general"]
-  },
-  {
-    "id": "PRO_MON_001",
-    "title": "重启马",
-    "subtitle": "每周一早上，都要花一上午时间给大脑执行一次艰难的重启。",
-    "timeTag": "monday",
-    "jobTag": ["programmer", "designer", "pm_operator", "engineer", "general"]
-  },
-  {
-    "id": "DES_MON_001",
-    "title": "改稿马",
-    "subtitle": "周一的命，是“感觉不对”和“再出一版”给的。",
-    "timeTag": "monday",
-    "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
   {
     "id": "DES_OT_001",
@@ -209,25 +181,11 @@ export const HORSES_DATA: HorseEntry[] = [
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
-    "id": "GEN_WEEKEND_OT_001",
-    "title": "奉献马",
-    "subtitle": "当别人在享受生活时，我在享受福报。周末的工位，是我一个人的朝圣路。",
-    "timeTag": "overtime_weekend",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  },
-  {
     "id": "PRO_WEEKEND_OT_001",
     "title": "上线马",
     "subtitle": "“为了系统的稳定，周末的约会/游戏/睡眠，都是可以牺牲的”。",
     "timeTag": "overtime_weekend",
     "jobTag": ["programmer", "engineer", "pm_operator", "general"]
-  },
-  {
-    "id": "GEN_OT_001",
-    "title": "充电马",
-    "subtitle": "白天电量耗尽，深夜靠外卖和短视频勉强回血5%。",
-    "timeTag": "overtime_night",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "MRK_OFF_001",
@@ -258,8 +216,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "timeTag": "workday_normal",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
-
-
   {
     "id": "PM_WKD_003",
     "title": "中转马",
@@ -273,13 +229,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "subtitle": "给平平无奇的数据报表，涂上最亮眼的口红（指重点标红和增长曲线）。",
     "timeTag": "workday_normal",
     "jobTag": ["marketer", "pm_operator", "manager", "general"]
-  },
-  {
-    "id": "GEN_NOON_002",
-    "title": "探险马",
-    "subtitle": "每日灵魂拷问：是点开熟悉但难吃的外卖，还是去探索公司食堂的新‘惊喜’？",
-    "timeTag": "workday_noon",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "GEN_OFF_006",
@@ -301,13 +250,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "subtitle": "每个节日，都是我们制造消费冲动的战场。没有需求，就创造需求。",
     "timeTag": "after_holiday",
     "jobTag": ["marketer", "pm_operator", "general"]
-  },
-  {
-    "id": "GEN_WKD_004",
-    "title": "自闭马",
-    "subtitle": "戴上耳机，世界与我无关。不是真的在听歌，只是想买个‘勿扰’结界。",
-    "timeTag": "workday_normal",
-    "jobTag": ["programmer", "designer", "pm_operator", "engineer", "professional", "general"]
   },
   {
     "id": "PM_OT_002",
@@ -382,7 +324,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "GEN_FRI_001",
     "title": "预备马",
-    "subtitle": "从周五下午三点开始，生理和心理都已提前进入周末‘战备’休息状态。",
+    "subtitle": "从周五下午开始，生理和心理都已提前进入周末‘战备’休息状态。",
     "timeTag": "friday_evening",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
@@ -449,14 +391,6 @@ export const HORSES_DATA: HorseEntry[] = [
     "timeTag": "monday",
     "jobTag": ["programmer", "designer", "pm_operator", "engineer", "professional", "manager", "general"]
   },
-  {
-    "id": "ALL_HOL_001",
-    "title": "亢奋马",
-    "subtitle": "假期前一天，工作效率归零，只剩下对自由的无限向往和坐立难安的等待。",
-    "timeTag": "off_work",
-    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
-  },
-
   {
     "id": "DES_WEEKEND_OT_001",
     "title": "宝宝马",

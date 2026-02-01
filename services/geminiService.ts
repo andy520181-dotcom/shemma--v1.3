@@ -112,8 +112,9 @@ function mapToJobTag(profession: string): string {
 
 // Helper for time matching (handles weekend ambiguity)
 function matchTime(dbTime: string, queryTime: string): boolean {
+  // 周末时不匹配任何特定时间标签，直接回退到通用标签匹配
   if (queryTime === 'weekend_check') {
-    return dbTime === 'overtime_weekend' || dbTime === 'off_work';
+    return false;
   }
   return dbTime === queryTime;
 }

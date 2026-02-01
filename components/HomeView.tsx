@@ -163,7 +163,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* Brand Header - Fixed height */}
       <div className="pt-[58px] pb-2 w-full flex justify-center items-center z-20 shrink-0">
-        <h1 className="text-[20px] text-black font-bold tracking-tight opacity-80">
+        <h1 className="text-[20px] text-gray-400 font-light tracking-tight">
           SHEMMA神么玛
         </h1>
       </div>
@@ -175,7 +175,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="w-full flex flex-col items-start mt-4 pl-1 relative z-10 shrink-0">
 
           {/* Row 1: Nickname */}
-          <div className="flex flex-row items-center gap-3 mb-4" style={{ height: '32px' }}>
+          <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px', paddingLeft: '5px' }}>
             <span className="text-[14px] font-light text-gray-400">昵称</span>
 
             <div className="flex items-center relative h-full">
@@ -192,8 +192,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     className="text-[14px] font-light text-[#1C1C1E] placeholder:text-gray-300 bg-transparent outline-none w-[120px] p-0 border-none focus:ring-0 truncate font-sans tracking-tight"
                     style={{ letterSpacing: '-0.03em' }}
                   />
-                  {/* Static underline when editing */}
-                  <div className="absolute bottom-1 left-0 right-0 h-[1px] bg-gray-200"></div>
                 </div>
               ) : (
                 <div
@@ -213,7 +211,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* Row 2: Profession */}
-          <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px' }}>
+          <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px', paddingLeft: '5px' }}>
             <span className="text-[14px] font-light text-gray-400">职业</span>
 
             <div className="flex items-center relative h-full">
@@ -230,7 +228,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     className="text-[14px] font-light text-[#1C1C1E] placeholder:text-gray-300 bg-transparent outline-none w-[120px] p-0 border-none focus:ring-0 truncate font-sans tracking-tight"
                     style={{ letterSpacing: '-0.03em' }}
                   />
-                  <div className="absolute bottom-1 left-0 right-0 h-[1px] bg-gray-200"></div>
                 </div>
               ) : (
                 <div
@@ -252,10 +249,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Centered Avatar - 使用固定尺寸避免依赖动态计算 */}
         <div className="flex-grow flex flex-col items-center justify-center" style={{ minHeight: '300px', paddingBottom: '32px' }}>
-          {/* Avatar Upload Section */}
-          <div className="flex flex-col items-center justify-center w-full" style={{ marginTop: '-130px' }}>
-            {/* Fixed 280px Container - 固定尺寸确保布局稳定并与结果页一致 */}
-            <div className="animate-breathe relative flex items-center justify-center" style={{ width: '280px', height: '280px' }}>
+          {/* Avatar Upload Section - 居中显示，忽略刘海屏 */}
+          <div className="flex flex-col items-center justify-center w-full" style={{ marginTop: '-100px' }}>
+            {/* Fixed 250px Container - 固定尺寸确保布局稳定并与结果页一致 */}
+            <div className="relative flex items-center justify-center" style={{ width: '260px', height: '260px' }}>
               <div
                 className="relative cursor-pointer group"
                 style={{ width: '100%', height: '100%' }}
@@ -267,13 +264,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <img
                       src={avatar}
                       alt="User Avatar"
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out transform scale-100 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out transform scale-100 group-hover:scale-105 animate-breathe"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center transition-all duration-500 ease-out">
                       <svg
                         viewBox="0 0 986.65 995.37"
-                        className="w-full h-full transition-transform duration-500 ease-out transform scale-100 group-hover:scale-105"
+                        className="w-full h-full transition-transform duration-500 ease-out transform scale-100 group-hover:scale-105 animate-breathe"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <defs>
@@ -309,12 +306,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* Start Button Section - Fixed at bottom of flex area */}
-          <div className="w-full flex flex-col items-center shrink-0 mt-[46px]">
+          <div className="w-full flex flex-col items-center shrink-0 mt-[96px]">
             <button
               onClick={onStart}
               disabled={!avatar || isLoading}
               className={`
-                        w-full max-w-[280px] h-[56px] rounded-full flex items-center justify-center text-[18px] font-medium tracking-wide transition-all duration-300
+                        w-full max-w-[260px] h-[56px] rounded-full flex items-center justify-center text-[18px] font-medium tracking-wide transition-all duration-300
                         ${avatar && !isLoading
                   ? 'bg-gray-100 text-[#1C1C1E] hover:bg-gray-200 active:scale-[0.98] shadow-sm'
                   : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'

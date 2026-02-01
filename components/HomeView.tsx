@@ -249,8 +249,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Centered Avatar - 使用固定尺寸避免依赖动态计算 */}
         <div className="flex-grow flex flex-col items-center justify-center" style={{ minHeight: '300px', paddingBottom: '32px' }}>
-          {/* Avatar Upload Section - 居中显示，忽略刘海屏 */}
-          <div className="flex flex-col items-center justify-center w-full" style={{ marginTop: '-100px' }}>
+          {/* Middle Content Wrapper - 使用absolute定位居中 */}
+          <div className="absolute top-1/2 left-0 right-0 flex flex-col items-center" style={{ transform: 'translateY(calc(-50% - 70px))' }}>
             {/* Fixed 250px Container - 固定尺寸确保布局稳定并与结果页一致 */}
             <div className="relative flex items-center justify-center" style={{ width: '260px', height: '260px' }}>
               <div
@@ -306,7 +306,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* Start Button Section - Fixed at bottom of flex area */}
-          <div className="w-full flex flex-col items-center shrink-0 mt-[96px]">
+          <div className="w-full flex flex-col items-center shrink-0 mt-[376px]">
             <button
               onClick={onStart}
               disabled={!avatar || isLoading}

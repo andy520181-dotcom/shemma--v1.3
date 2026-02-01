@@ -145,8 +145,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                     )}
                 </div>
 
-                {/* Middle Content Wrapper - 固定定位而非居中 */}
-                <div className="w-full flex flex-col items-center justify-start min-h-0" style={{ paddingTop: '120px' }}>
+                {/* Middle Content Wrapper - 头像本身居中 */}
+                <div className="absolute top-1/2 left-0 right-0 flex flex-col items-center" style={{ transform: 'translateY(-130px)' }}>
 
                     {/* 昵称和职业 - 移到头像上方，负margin向上移动 */}
                     <div className="text-center mb-1 w-full flex flex-col items-center shrink-0 relative z-10" style={{ marginTop: '-120px' }}>

@@ -1,6 +1,6 @@
 {
     "enabled": true,
-    "imageUrl": "/ad-poster.png",
+    "imageUrl": "ad-poster.png",
     "duration": 5,
     "skipAfter": 2,
     "link": "",

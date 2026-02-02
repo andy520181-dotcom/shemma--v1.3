@@ -1,7 +1,8 @@
 import { AdConfig, DEFAULT_AD_CONFIG } from '../types/ad';
 
-// 远程配置URL - 使用GitHub Pages托管
-const AD_CONFIG_URL = 'https://andy520181-dotcom.github.io/shemma--v1.3/ad-config.json';
+// 远程配置URL - 开发时使用本地，生产环境使用GitHub Pages
+const AD_CONFIG_URL = window.location.origin + '/ad-config.json';
+// const AD_CONFIG_URL = 'https://andy520181-dotcom.github.io/shemma--v1.3/ad-config.json';
 
 // LocalStorage缓存键
 const CACHE_KEY = 'matoto_ad_config';

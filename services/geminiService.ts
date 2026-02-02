@@ -1,6 +1,7 @@
 import { DiagnosisResult } from "../types";
 import { HORSES_DATA, HorseEntry } from "../data/database";
 import { isHoliday } from "../data/holidays";
+import { getUsageData, incrementUsage, recordShownResult, shouldUseDiversity } from "./usageTracker";
 
 // 1. Time Tag Generation Logic
 function getTimeTag(date: Date): string {
@@ -121,6 +122,34 @@ function matchTime(dbTime: string, queryTime: string): boolean {
 
 // 3. Core Matching Logic (Returns a list of candidates)
 function findCandidates(timeTag: string, jobTag: string): HorseEntry[] {
+
+  // **方案B：使用3次及以上，只匹配通用时间标签**
+  if (shouldUseDiversity()) {
+    console.log('🎯 多样性模式：匹配通用时间场景');
+
+    // 定义通用时间标签（任何时候都适用的场景）
+    const universalTimeTags = ['workday_normal', 'off_work', 'overtime_night', 'weekend_check'];
+
+    // 过滤：通用时间 + 职业匹配
+    const diversityCandidates = HORSES_DATA.filter(h =>
+      universalTimeTags.includes(h.timeTag) && h.jobTag.includes(jobTag)
+    );
+
+    if (diversityCandidates.length > 0) {
+      console.log(`📊 多样性结果池: ${diversityCandidates.length}个`);
+      return diversityCandidates;
+    }
+
+    // 降级：通用时间 + general
+    const fallbackCandidates = HORSES_DATA.filter(h =>
+      universalTimeTags.includes(h.timeTag) && h.jobTag.includes('general')
+    );
+
+    if (fallbackCandidates.length > 0) return fallbackCandidates;
+  }
+
+  // **前2次：原有的三层匹配逻辑**
+
   // Layer 1: Precise Match
   // timeTag == input AND jobTag includes input
   const layer1 = HORSES_DATA.filter(h =>
@@ -152,14 +181,30 @@ export const analyzeAvatar = async (
   const timeTag = getTimeTag(now);
   const jobTag = mapToJobTag(profession);
 
+  // **增加使用次数**
+  incrementUsage();
+
   // 2. Data Matching (Get Candidates)
   const candidates = findCandidates(timeTag, jobTag);
 
-  // 3. Random Selection from Candidates
+  // 3. Random Selection from Candidates with Deduplication
   const getRandomCandidate = () => {
+    const usageData = getUsageData();
     const source = candidates.length > 0 ? candidates : HORSES_DATA;
-    const randomIndex = Math.floor(Math.random() * source.length);
-    return source[randomIndex];
+
+    // **结果去重**：过滤已显示的结果
+    let available = source.filter(h => !usageData.shownIds.includes(h.id));
+
+    // 如果所有结果都显示过，重置已显示列表
+    if (available.length === 0) {
+      console.log('🔄 所有结果已显示，重置显示记录');
+      available = source;
+      usageData.shownIds = [];
+    }
+
+    // 随机选择
+    const randomIndex = Math.floor(Math.random() * available.length);
+    return available[randomIndex];
   };
 
   // Simulate a short "processing" delay (1.5 seconds) for UX
@@ -167,6 +212,11 @@ export const analyzeAvatar = async (
   await new Promise(resolve => setTimeout(resolve, 1500));
 
   const selectedHorse = getRandomCandidate();
+
+  // **记录已显示的结果ID**
+  recordShownResult(selectedHorse.id);
+
+  console.log(`✅ 选中结果: ${selectedHorse.title} (${selectedHorse.id})`);
 
   return formatResult(selectedHorse);
 };

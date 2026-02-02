@@ -86,7 +86,7 @@ const App: React.FC = () => {
         type: result.type || "未知",
         fullTitle: result.fullTitle || "未知马",
         quote: result.quote || "神秘的力量让你无法被定义。",
-        nickname: nickname.trim() || "神么玛",
+        nickname: nickname.trim() || "马吐吐",
         profession: profession.trim() || "自由职业"
       };
 

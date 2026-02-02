@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.whorse.app',
-  appName: 'WhoreApp',
+  appName: 'Matoto',
   webDir: 'dist',
   server: {
     cleartext: true,

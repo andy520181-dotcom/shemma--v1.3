@@ -77,7 +77,7 @@ export const ResultView: React.FC<ResultViewProps> = ({
         } else {
           // 在 Web 浏览器上下载
           const link = document.createElement('a');
-          link.download = `SHEMMA_Result_${Date.now()}.png`;
+          link.download = `Matoto_Result_${Date.now()}.png`;
           link.href = canvas.toDataURL('image/png');
           link.click();
 

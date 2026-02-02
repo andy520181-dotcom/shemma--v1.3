@@ -164,7 +164,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Brand Header - Fixed height */}
       <div className="pt-[58px] pb-2 w-full flex justify-center items-center z-20 shrink-0">
         <h1 className="text-[20px] text-gray-400 font-light tracking-tight">
-          SHEMMA神么玛
+          Matoto马吐吐
         </h1>
       </div>
 
@@ -329,7 +329,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </button>
 
             <p className="mt-4 text-[14px] text-gray-400 font-light tracking-wide">
-              上传头像，看看今天你是什么马
+              上传头像，生成你的吐槽文案
             </p>
           </div>
 

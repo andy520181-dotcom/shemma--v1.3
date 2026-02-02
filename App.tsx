@@ -5,10 +5,17 @@ import { HomeView } from './components/HomeView';
 import { ResultView } from './components/ResultView';
 import { Toast } from './components/Toast';
 import { SplashView } from './components/SplashView';
+import { AdView } from './components/AdView';
+import { getAdConfig } from './services/adService';
+import { AdConfig } from './types/ad';
 
 const App: React.FC = () => {
   // 启动页状态
   const [showSplash, setShowSplash] = useState<boolean>(true);
+
+  // 广告页状态
+  const [showAd, setShowAd] = useState<boolean>(false);
+  const [adConfig, setAdConfig] = useState<AdConfig | null>(null);
 
   // 资源加载状态
   const [isReady, setIsReady] = useState<boolean>(false);
@@ -151,9 +158,33 @@ const App: React.FC = () => {
     );
   }
 
+  // 启动页完成处理
+  const handleSplashComplete = async () => {
+    setShowSplash(false);
+
+    // 加载广告配置
+    try {
+      const config = await getAdConfig();
+      console.log('广告配置:', config);
+
+      if (config.enabled) {
+        setAdConfig(config);
+        setShowAd(true);
+      }
+    } catch (error) {
+      console.error('加载广告配置失败:', error);
+      // 失败直接进入主页
+    }
+  };
+
   // 如果启动页还在显示
   if (showSplash) {
-    return <SplashView onComplete={() => setShowSplash(false)} />;
+    return <SplashView onComplete={handleSplashComplete} />;
+  }
+
+  // 如果广告页在显示
+  if (showAd && adConfig) {
+    return <AdView config={adConfig} onComplete={() => setShowAd(false)} />;
   }
 
   return (

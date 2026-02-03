@@ -168,8 +168,8 @@ export const HORSES_DATA: HorseEntry[] = [
   },
   {
     "id": "GEN_MON_001",
-    "title": "开工马",
-    "subtitle": "开工大吉，马上有钱",
+    "title": "加油马",
+    "subtitle": "天哪，新的一周又开始了，又得加油了哇",
     "timeTag": "monday",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
@@ -212,7 +212,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "DES_WKD_006",
     "title": "苹什马",
-    "subtitle": "凭什么?这个方案通不过行吧，甲方爸爸你说了算。",
+    "subtitle": "凭什么?这个方案通不过？行吧，甲方爸爸你说了算。",
     "timeTag": "workday_normal",
     "jobTag": ["designer", "pm_operator", "marketer", "general"]
   },
@@ -303,7 +303,7 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "DES_OT_004",
     "title": "版本马",
-    "subtitle": "“最终版_v2_确认版_这回真不改了_定稿_Final_真的Final版.psd”，是我的代表作。",
+    "subtitle": "“最终版_v2_确认版_这回真不改了_定稿_Final_真的Final版.psd”。",
     "timeTag": "overtime_night",
     "jobTag": ["designer", "pm_operator", "general"]
   },
@@ -345,9 +345,9 @@ export const HORSES_DATA: HorseEntry[] = [
   {
     "id": "PRO_HOL_002",
     "title": "拜年马",
-    "subtitle": "春节假期的主要工作：在家族群里抢红包，以及在技术群里回答线上报警的问题。",
-    "timeTag": "after_holiday",
-    "jobTag": ["programmer", "engineer", "manager", "general"]
+    "subtitle": "春节假期的主要工作：在家族群里发拜年微信、抢红包。",
+    "timeTag": "spring_festival",
+    "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   },
   {
     "id": "PM_NOON_001",

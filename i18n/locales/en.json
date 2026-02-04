@@ -1,0 +1,39 @@
+{
+    "app": {
+        "name": "Matoto",
+        "subtitle": "Express Your Work Life"
+    },
+    "splash": {
+        "subtitle": "Roast About Being a Workhorse"
+    },
+    "home": {
+        "nickname": "Nickname",
+        "profession": "Profession",
+        "nicknamePlaceholder": "Enter nickname",
+        "professionPlaceholder": "Enter profession",
+        "uploadHint": "Tap to upload avatar",
+        "startButton": "Start",
+        "generating": "Generating...",
+        "bottomHint": "Upload avatar and\ngenerate your roast content",
+        "camera": "Take Photo",
+        "chooseFromLibrary": "Choose from Library",
+        "cancel": "Cancel",
+        "uploadAvatarFirst": "Please upload your avatar first",
+        "defaultNickname": "Matoto",
+        "defaultProfession": "Freelancer"
+    },
+    "result": {
+        "back": "Back",
+        "saveImage": "Save Image",
+        "retryTest": "Retry Test",
+        "cancel": "Cancel",
+        "imageSaved": "Image saved to album",
+        "imageDownloaded": "Image downloaded",
+        "saveFailed": "Failed to save, please check album permissions",
+        "generateFailed": "Failed to generate image",
+        "longPressHint": "Long press to edit content"
+    },
+    "toast": {
+        "savedToAlbum": "Saved to album"
+    }
+}

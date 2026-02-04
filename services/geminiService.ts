@@ -1,7 +1,8 @@
 import { DiagnosisResult } from "../types";
-import { HORSES_DATA, HorseEntry } from "../data/database";
+import { getHorsesData, HorseEntry } from "../data/database";
 import { isHoliday } from "../data/holidays";
 import { getUsageData, incrementUsage, recordShownResult, shouldUseDiversity } from "./usageTracker";
+import i18n from '../i18n/config';
 
 // 1. Time Tag Generation Logic
 function getTimeTag(date: Date): string {
@@ -130,6 +131,8 @@ function findCandidates(timeTag: string, jobTag: string): HorseEntry[] {
     // 定义通用时间标签（任何时候都适用的场景）
     const universalTimeTags = ['workday_normal', 'off_work', 'overtime_night', 'weekend_check'];
 
+    const HORSES_DATA = getHorsesData(i18n.language);
+
     // 过滤：通用时间 + 职业匹配
     const diversityCandidates = HORSES_DATA.filter(h =>
       universalTimeTags.includes(h.timeTag) && h.jobTag.includes(jobTag)
@@ -149,6 +152,7 @@ function findCandidates(timeTag: string, jobTag: string): HorseEntry[] {
   }
 
   // **前2次：原有的三层匹配逻辑**
+  const HORSES_DATA = getHorsesData(i18n.language);
 
   // Layer 1: Precise Match
   // timeTag == input AND jobTag includes input
@@ -190,6 +194,7 @@ export const analyzeAvatar = async (
   // 3. Random Selection from Candidates with Deduplication
   const getRandomCandidate = () => {
     const usageData = getUsageData();
+    const HORSES_DATA = getHorsesData(i18n.language);
     const source = candidates.length > 0 ? candidates : HORSES_DATA;
 
     // **结果去重**：过滤已显示的结果

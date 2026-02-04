@@ -1,0 +1,39 @@
+{
+    "app": {
+        "name": "Matoto马吐吐",
+        "subtitle": "打工牛马一吐为快"
+    },
+    "splash": {
+        "subtitle": "打工牛马一吐为快"
+    },
+    "home": {
+        "nickname": "昵称",
+        "profession": "职业",
+        "nicknamePlaceholder": "填写昵称",
+        "professionPlaceholder": "填写职业",
+        "uploadHint": "点击上传头像",
+        "startButton": "开始",
+        "generating": "正在生成...",
+        "bottomHint": "上传头像,生成你的吐槽文案",
+        "camera": "拍照",
+        "chooseFromLibrary": "从相册选择",
+        "cancel": "取消",
+        "uploadAvatarFirst": "请先上传头像",
+        "defaultNickname": "马吐吐",
+        "defaultProfession": "自由职业"
+    },
+    "result": {
+        "back": "返回",
+        "saveImage": "保存图片",
+        "retryTest": "重新测试",
+        "cancel": "取消",
+        "imageSaved": "图片已保存到相册",
+        "imageDownloaded": "图片已下载",
+        "saveFailed": "保存失败,请检查相册权限",
+        "generateFailed": "生成图片失败",
+        "longPressHint": "长按可自定义编辑内容"
+    },
+    "toast": {
+        "savedToAlbum": "已保存到相册"
+    }
+}

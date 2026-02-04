@@ -1,0 +1,19 @@
+/* 
+  InfoPlist.strings
+  中文（简体）本地化
+*/
+
+/* App显示名称 */
+"CFBundleDisplayName" = "马吐吐";
+
+/* App名称 */
+"CFBundleName" = "马吐吐";
+
+/* 相机权限描述 */
+"NSCameraUsageDescription" = "需要访问相机以拍摄头像照片";
+
+/* 相册添加权限描述 */
+"NSPhotoLibraryAddUsageDescription" = "需要访问相册以保存和选择头像照片";
+
+/* 相册访问权限描述 */
+"NSPhotoLibraryUsageDescription" = "需要访问相册以选择头像照片";

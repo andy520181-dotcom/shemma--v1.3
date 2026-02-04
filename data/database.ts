@@ -1,3 +1,5 @@
+import { HORSES_DATA_EN } from './database-en';
+
 // 定义数据库条目的接口
 export interface HorseEntry {
   id: string;
@@ -7,8 +9,8 @@ export interface HorseEntry {
   jobTag: string[];
 }
 
-// 完整的马系人格数据库
-export const HORSES_DATA: HorseEntry[] = [
+// 完整的马系人格数据库(中文)
+export const HORSES_DATA_ZH: HorseEntry[] = [
   {
     "id": "GEN_WKD_001",
     "title": "班马",
@@ -447,3 +449,11 @@ export const HORSES_DATA: HorseEntry[] = [
     "timeTag": "workday_normal",
     "jobTag": ["programmer", "designer", "pm_operator", "marketer", "engineer", "professional", "manager", "general"]
   }];
+
+// 根据当前语言获取数据库
+export const getHorsesData = (language: string = 'zh'): HorseEntry[] => {
+  return language === 'en' ? HORSES_DATA_EN : HORSES_DATA_ZH;
+};
+
+// 为了向后兼容,保留原有的 HORSES_DATA 导出(默认中文)
+export const HORSES_DATA = HORSES_DATA_ZH;

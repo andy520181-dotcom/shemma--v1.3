@@ -1,0 +1,19 @@
+/* 
+  InfoPlist.strings
+  English Localization
+*/
+
+/* App Display Name */
+"CFBundleDisplayName" = "Matoto";
+
+/* App Name */
+"CFBundleName" = "Matoto";
+
+/* Camera Permission Description */
+"NSCameraUsageDescription" = "Camera access is needed to take avatar photos";
+
+/* Photo Library Add Permission Description */
+"NSPhotoLibraryAddUsageDescription" = "Photo library access is needed to save and select avatar photos";
+
+/* Photo Library Access Permission Description */
+"NSPhotoLibraryUsageDescription" = "Photo library access is needed to select avatar photos";

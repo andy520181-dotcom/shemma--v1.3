@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface SplashViewProps {
     onComplete: () => void;
 }
 
 export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
+    const { t } = useTranslation();
     const [show, setShow] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
 
@@ -42,12 +44,12 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
             <div className="flex flex-col items-center gap-1 animate-in fade-in duration-[500ms]">
                 {/* 纯文字Logo - Matoto马吐吐 */}
                 <h1 className="text-lg font-medium text-[#231815] tracking-wide">
-                    Matoto马吐吐
+                    {t('app.name')}
                 </h1>
 
                 {/* 副标题 */}
                 <p className="text-xs text-gray-400 font-light tracking-wider">
-                    打工牛马一吐为快
+                    {t('splash.subtitle')}
                 </p>
             </div>
         </div>

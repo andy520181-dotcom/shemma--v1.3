@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DiagnosisResult } from '../types';
 import { ChevronLeft } from 'lucide-react';
 import { ResultCard } from './ResultCard';
@@ -18,6 +19,7 @@ interface ResultViewProps {
 export const ResultView: React.FC<ResultViewProps> = ({
   data, onUpdateData, onBack, onRetry
 }) => {
+  const { t } = useTranslation();
   const [showMenu, setShowMenu] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -65,12 +67,12 @@ export const ResultView: React.FC<ResultViewProps> = ({
             console.log('图片已成功保存到相册');
 
             // 成功后才显示Toast
-            setToastMessage('图片已保存到相册');
+            setToastMessage(t('result.imageSaved'));
             setShowToast(true);
             setTimeout(() => setShowToast(false), 2000);
           } catch (error) {
             console.error('保存失败，详细错误:', error);
-            setToastMessage('保存失败，请检查相册权限');
+            setToastMessage(t('result.saveFailed'));
             setShowToast(true);
             setTimeout(() => setShowToast(false), 2000);
           }
@@ -81,13 +83,13 @@ export const ResultView: React.FC<ResultViewProps> = ({
           link.href = canvas.toDataURL('image/png');
           link.click();
 
-          setToastMessage('图片已下载');
+          setToastMessage(t('result.imageDownloaded'));
           setShowToast(true);
           setTimeout(() => setShowToast(false), 2000);
         }
       } catch (error) {
         console.error('截图失败:', error);
-        setToastMessage('生成图片失败');
+        setToastMessage(t('result.generateFailed'));
         setShowToast(true);
         setTimeout(() => setShowToast(false), 2000);
       }
@@ -104,7 +106,7 @@ export const ResultView: React.FC<ResultViewProps> = ({
           className="text-ios-blue flex items-center gap-1 active:opacity-50 transition-opacity relative z-10"
         >
           <ChevronLeft className="w-7 h-7 -ml-2" strokeWidth={1.5} />
-          <span className="text-lg font-light">返回</span>
+          <span className="text-lg font-light">{t('result.back')}</span>
         </button>
 
         <div className="w-10"></div>
@@ -139,20 +141,20 @@ export const ResultView: React.FC<ResultViewProps> = ({
                 onClick={handleSaveImage}
                 className="w-full h-[56px] flex items-center justify-center text-[14px] font-light text-black active:bg-gray-100 transition-colors border-b border-gray-100/50"
               >
-                保存图片
+                {t('result.saveImage')}
               </button>
               <button
                 onClick={() => handleAction(onRetry)}
                 className="w-full h-[56px] flex items-center justify-center text-[14px] font-light text-black active:bg-gray-100 transition-colors"
               >
-                重新测试
+                {t('result.retryTest')}
               </button>
             </div>
             <button
               onClick={() => setShowMenu(false)}
               className="w-full h-[56px] bg-white rounded-xl flex items-center justify-center text-[14px] font-normal text-black shadow-sm active:bg-gray-100 transition-colors"
             >
-              取消
+              {t('result.cancel')}
             </button>
           </div>
         </div>

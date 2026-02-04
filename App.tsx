@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AppView, DiagnosisResult } from './types';
 import { analyzeAvatar } from './services/geminiService';
 import { HomeView } from './components/HomeView';
@@ -10,6 +11,11 @@ import { getAdConfig } from './services/adService';
 import { AdConfig } from './types/ad';
 
 const App: React.FC = () => {
+  const { t, i18n } = useTranslation();
+
+  // i18n 初始化状态
+  const [i18nReady, setI18nReady] = useState<boolean>(false);
+
   // 启动页状态
   const [showSplash, setShowSplash] = useState<boolean>(true);
 
@@ -32,10 +38,26 @@ const App: React.FC = () => {
   const [toastMessage, setToastMessage] = useState("已保存到相册");
   const [isLoading, setIsLoading] = useState(false);
 
+  // 检测 i18n 初始化完成
+  useEffect(() => {
+    if (i18n.isInitialized) {
+      setI18nReady(true);
+    } else {
+      i18n.on('initialized', () => {
+        setI18nReady(true);
+      });
+    }
+  }, [i18n]);
+
   // 检测关键资源加载完成
   useEffect(() => {
     const checkResources = async () => {
       try {
+        // 等待 i18n 初始化
+        if (!i18nReady) {
+          return;
+        }
+
         // 只检测真正必要的资源
         if (document.readyState !== 'complete') {
           await new Promise<void>(resolve => {
@@ -53,13 +75,13 @@ const App: React.FC = () => {
         console.log('✓ 基础资源加载完成');
         setIsReady(true);
       } catch (error) {
-        console.error('资源加载检测失败:', error);
+        console.error('资源加载失败:', error);
         setTimeout(() => setIsReady(true), 500);
       }
     };
 
     checkResources();
-  }, []);
+  }, [i18nReady]);
 
   const handleImageSelect = (file: File) => {
     const reader = new FileReader();
@@ -71,7 +93,7 @@ const App: React.FC = () => {
 
   const handleStartAnalysis = async () => {
     if (!selectedImage) {
-      setToastMessage("请先上传头像");
+      setToastMessage(t('home.uploadAvatarFirst'));
       setShowToast(true);
       setTimeout(() => setShowToast(false), 2000);
       return;
@@ -93,8 +115,8 @@ const App: React.FC = () => {
         type: result.type || "未知",
         fullTitle: result.fullTitle || "未知马",
         quote: result.quote || "神秘的力量让你无法被定义。",
-        nickname: nickname.trim() || "马吐吐",
-        profession: profession.trim() || "自由职业"
+        nickname: nickname.trim() || t('home.defaultNickname'),
+        profession: profession.trim() || t('home.defaultProfession')
       };
 
       audio.play().catch(e => console.log("Audio play failed", e));

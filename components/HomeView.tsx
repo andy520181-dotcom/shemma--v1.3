@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Edit3, Loader2 } from 'lucide-react';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface HomeViewProps {
   avatar: string | null;
@@ -23,6 +25,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onStart,
   isLoading
 }) => {
+  const { t } = useTranslation();
   // State to manage Action Sheet Menu
   const [showMenu, setShowMenu] = useState(false);
 
@@ -162,10 +165,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
     >
 
       {/* Brand Header - Fixed height */}
-      <div className="pt-[58px] pb-2 w-full flex justify-center items-center z-20 shrink-0">
-        <h1 className="text-[20px] text-gray-400 font-light tracking-tight">
-          Matoto马吐吐
+      <div className="pt-[58px] pb-2 w-full flex justify-between items-center px-4 z-20 shrink-0">
+        <h1 className="text-[20px] text-gray-400 font-light tracking-tight flex-1 text-center">
+          {t('app.name')}
         </h1>
+        <div className="absolute right-4">
+          <LanguageSwitcher />
+        </div>
       </div>
 
       {/* Main Content Area - Fixed layout with robust height - 使用固定的 minHeight 而不是 calc()，避免 Tailwind 未加载时计算失败 */}
@@ -176,7 +182,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* Row 1: Nickname */}
           <div className="flex flex-row items-center gap-3 mb-[18px]" style={{ height: '32px', paddingLeft: '5px' }}>
-            <span className="text-[14px] font-light text-gray-400">昵称</span>
+            <span className="text-[14px] font-light text-gray-400">{t('home.nickname')}</span>
 
             <div className="flex items-center relative h-full">
               {isEditingNickname ? (
@@ -188,7 +194,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     onChange={(e) => onNicknameChange(e.target.value)}
                     onBlur={handleNicknameSubmit}
                     onKeyDown={(e) => e.key === 'Enter' && handleNicknameSubmit()}
-                    placeholder="填写昵称"
+                    placeholder={t('home.nicknamePlaceholder')}
                     className="text-[14px] font-light text-[#1C1C1E] placeholder:text-gray-300 bg-transparent outline-none w-[120px] p-0 border-none focus:ring-0 truncate font-sans tracking-tight"
                     style={{ letterSpacing: '-0.03em' }}
                   />
@@ -212,7 +218,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* Row 2: Profession */}
           <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px', paddingLeft: '5px' }}>
-            <span className="text-[14px] font-light text-gray-400">职业</span>
+            <span className="text-[14px] font-light text-gray-400">{t('home.profession')}</span>
 
             <div className="flex items-center relative h-full">
               {isEditingProfession ? (
@@ -224,7 +230,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     onChange={(e) => onProfessionChange(e.target.value)}
                     onBlur={handleProfessionSubmit}
                     onKeyDown={(e) => e.key === 'Enter' && handleProfessionSubmit()}
-                    placeholder="填写职业"
+                    placeholder={t('home.professionPlaceholder')}
                     className="text-[14px] font-light text-[#1C1C1E] placeholder:text-gray-300 bg-transparent outline-none w-[120px] p-0 border-none focus:ring-0 truncate font-sans tracking-tight"
                     style={{ letterSpacing: '-0.03em' }}
                   />
@@ -288,7 +294,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 {!avatar && (
                   <div className="absolute bottom-[45px] left-0 right-0 flex justify-center opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    <span className="text-sm font-light text-gray-400">点击上传头像</span>
+                    <span className="text-sm font-light text-gray-400">{t('home.uploadHint')}</span>
                   </div>
                 )}
 
@@ -321,15 +327,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {isLoading ? (
                 <div className="flex items-center gap-2">
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>正在生成...</span>
+                  <span>{t('home.generating')}</span>
                 </div>
               ) : (
-                "开始"
+                t('home.startButton')
               )}
             </button>
 
             <p className="mt-4 text-[14px] text-gray-400 font-light tracking-wide">
-              上传头像，生成你的吐槽文案
+              {t('home.bottomHint')}
             </p>
           </div>
 
@@ -349,20 +355,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 onClick={handleCamera}
                 className="w-full h-[56px] flex items-center justify-center text-[14px] font-light text-black active:bg-gray-100 transition-colors border-b border-gray-100/50"
               >
-                拍照
+                {t('home.camera')}
               </button>
               <button
                 onClick={handleLibrary}
                 className="w-full h-[56px] flex items-center justify-center text-[14px] font-light text-black active:bg-gray-100 transition-colors"
               >
-                从相册选择
+                {t('home.chooseFromLibrary')}
               </button>
             </div>
             <button
               onClick={() => setShowMenu(false)}
               className="w-full h-[56px] bg-white rounded-xl flex items-center justify-center text-[14px] font-normal text-black shadow-sm active:bg-gray-100 transition-colors"
             >
-              取消
+              {t('home.cancel')}
             </button>
           </div>
         </div>

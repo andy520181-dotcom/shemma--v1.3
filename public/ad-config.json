@@ -1,8 +1,8 @@
 {
-    "enabled": false,
-    "imageUrl": "",
-    "duration": 0,
-    "skipAfter": 0,
+    "enabled": true,
+    "imageUrl": "ad-poster.png",
+    "duration": 5,
+    "skipAfter": 2,
     "link": "",
-    "validUntil": ""
+    "validUntil": "2026-02-03"
 }

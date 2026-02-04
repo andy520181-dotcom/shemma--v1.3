@@ -47,7 +47,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onComplete }) => {
 
                 {/* 副标题 */}
                 <p className="text-xs text-gray-400 font-light tracking-wider">
-                    你的职场情绪搭子
+                    打工牛马一吐为快
                 </p>
             </div>
         </div>

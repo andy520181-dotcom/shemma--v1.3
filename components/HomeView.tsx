@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Edit3, Loader2 } from 'lucide-react';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { useTranslation } from 'react-i18next';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { validateContent } from '../utils/contentFilter';
 
 interface HomeViewProps {
   avatar: string | null;
@@ -28,6 +28,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
   const { t } = useTranslation();
   // State to manage Action Sheet Menu
   const [showMenu, setShowMenu] = useState(false);
+
+  // State for content validation error
+  const [contentError, setContentError] = useState<string | null>(null);
 
   // State to manage edit mode for nickname
   const [isEditingNickname, setIsEditingNickname] = useState(false);
@@ -152,10 +155,24 @@ export const HomeView: React.FC<HomeViewProps> = ({
   };
 
   const handleNicknameSubmit = () => {
+    // 验证昵称内容
+    const validation = validateContent(nickname);
+    if (!validation.isValid) {
+      setContentError(validation.message || 'content.sensitiveWordDetected');
+      setTimeout(() => setContentError(null), 3000);
+      return;
+    }
     setIsEditingNickname(false);
   };
 
   const handleProfessionSubmit = () => {
+    // 验证职业内容
+    const validation = validateContent(profession);
+    if (!validation.isValid) {
+      setContentError(validation.message || 'content.sensitiveWordDetected');
+      setTimeout(() => setContentError(null), 3000);
+      return;
+    }
     setIsEditingProfession(false);
   };
 
@@ -165,13 +182,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
     >
 
       {/* Brand Header - Fixed height */}
-      <div className="pt-[58px] pb-2 w-full flex justify-between items-center px-4 z-20 shrink-0">
-        <h1 className="text-[20px] text-gray-400 font-light tracking-tight flex-1 text-center">
+      <div className="pt-[58px] pb-2 w-full flex justify-center items-center px-4 z-20 shrink-0">
+        {/* App Name - Center */}
+        <h1 className="text-[20px] text-[#333333] font-light tracking-tight text-center">
           {t('app.name')}
         </h1>
-        <div className="absolute right-4">
-          <LanguageSwitcher />
-        </div>
       </div>
 
       {/* Main Content Area - Fixed layout with robust height - 使用固定的 minHeight 而不是 calc()，避免 Tailwind 未加载时计算失败 */}
@@ -182,7 +197,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* Row 1: Nickname */}
           <div className="flex flex-row items-center gap-3 mb-[18px]" style={{ height: '32px', paddingLeft: '5px' }}>
-            <span className="text-[14px] font-light text-gray-400">{t('home.nickname')}</span>
+            <span className="text-[14px] font-light text-[#333333]">{t('home.nickname')}</span>
 
             <div className="flex items-center relative h-full">
               {isEditingNickname ? (
@@ -218,7 +233,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* Row 2: Profession */}
           <div className="flex flex-row items-center gap-3 mb-2" style={{ height: '32px', paddingLeft: '5px' }}>
-            <span className="text-[14px] font-light text-gray-400">{t('home.profession')}</span>
+            <span className="text-[14px] font-light text-[#333333]">{t('home.profession')}</span>
 
             <div className="flex items-center relative h-full">
               {isEditingProfession ? (
@@ -294,7 +309,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 {!avatar && (
                   <div className="absolute bottom-[45px] left-0 right-0 flex justify-center opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    <span className="text-sm font-light text-gray-400">{t('home.uploadHint')}</span>
+                    <span className="text-sm font-light text-[#333333]">{t('home.uploadHint')}</span>
                   </div>
                 )}
 
@@ -334,13 +349,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
               )}
             </button>
 
-            <p className="mt-4 text-[14px] text-gray-400 font-light tracking-wide">
+            <p className="mt-4 text-[14px] text-[#333333] font-light tracking-wide">
               {t('home.bottomHint')}
             </p>
           </div>
 
         </div>
       </div>
+
+      {/* Content Validation Error Toast */}
+      {contentError && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 animate-fade-in">
+          <div className="bg-red-500 text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium">
+            {t(contentError)}
+          </div>
+        </div>
+      )}
 
       {/* Action Sheet Menu (iOS Style) */}
       {showMenu && (

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DiagnosisResult } from '../types';
 import { Share as ShareIcon } from 'lucide-react';
+import { validateContent } from '../utils/contentFilter';
 
 interface ResultCardProps {
     data: DiagnosisResult;
@@ -24,6 +25,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({
     const [isEditingQuote, setIsEditingQuote] = useState(false);
     const [tempType, setTempType] = useState(data.type);
     const [tempQuote, setTempQuote] = useState(data.quote);
+
+    // Content validation error
+    const [contentError, setContentError] = useState<string | null>(null);
 
     // Refs
     const typeInputRef = useRef<HTMLInputElement>(null);
@@ -75,6 +79,16 @@ export const ResultCard: React.FC<ResultCardProps> = ({
 
     // Save Logic
     const handleSaveType = () => {
+        // 验证内容
+        const validation = validateContent(tempType);
+        if (!validation.isValid) {
+            setContentError(validation.message || 'content.sensitiveWordDetected');
+            setTimeout(() => setContentError(null), 3000);
+            setTempType(data.type); // Revert to original if validation fails
+            setIsEditingType(false); // Exit editing mode
+            return;
+        }
+
         setIsEditingType(false);
         if (onUpdateData && tempType.trim()) {
             onUpdateData({ ...data, type: tempType.trim() });
@@ -84,6 +98,16 @@ export const ResultCard: React.FC<ResultCardProps> = ({
     };
 
     const handleSaveQuote = () => {
+        // 验证内容
+        const validation = validateContent(tempQuote);
+        if (!validation.isValid) {
+            setContentError(validation.message || 'content.sensitiveWordDetected');
+            setTimeout(() => setContentError(null), 3000);
+            setTempQuote(data.quote); // Revert to original if validation fails
+            setIsEditingQuote(false); // Exit editing mode
+            return;
+        }
+
         setIsEditingQuote(false);
         if (onUpdateData && tempQuote.trim()) {
             onUpdateData({ ...data, quote: tempQuote.trim() });
@@ -225,7 +249,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
                                 onTouchEnd={handleLongPressEnd}
                                 onContextMenu={(e) => e.preventDefault()}
                             >
-                                <p className="text-gray-400 text-lg leading-relaxed font-light break-words">
+                                <p className="text-[#333333] text-lg leading-relaxed font-light break-words">
                                     "{data.quote}"
                                 </p>
                             </div>
@@ -235,12 +259,38 @@ export const ResultCard: React.FC<ResultCardProps> = ({
 
                 {/* Footer Watermark - 只在非只读模式显示 */}
                 {!readOnly && (
-                    <div className="flex flex-col items-center opacity-10 gap-1 shrink-0 mt-2">
-                        <div className="w-4 h-4 rounded-full bg-black"></div>
-                        <p className="text-black text-[12px] tracking-wide font-light">{t('result.longPressHint')}</p>
+                    <div className="flex flex-col items-center gap-1 shrink-0 mt-2">
+                        <div className="w-4 h-4 rounded-full bg-black opacity-10"></div>
+                        <p className="text-[#333333] text-[12px] tracking-wide font-light">{t('result.longPressHint')}</p>
+
+                        {/* Privacy Links */}
+                        <div className="flex items-center gap-2 mt-1 text-[11px] text-[#999999]">
+                            <button
+                                onClick={() => window.open(t('settings.privacyPolicyUrl'), '_blank')}
+                                className="hover:text-ios-blue transition-colors"
+                            >
+                                {t('settings.privacyPolicy')}
+                            </button>
+                            <span>|</span>
+                            <button
+                                onClick={() => window.open(t('settings.userAgreementUrl'), '_blank')}
+                                className="hover:text-ios-blue transition-colors"
+                            >
+                                {t('settings.userAgreement')}
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
+
+            {/* Content Validation Error Toast */}
+            {contentError && (
+                <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 animate-fade-in">
+                    <div className="bg-red-500 text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium">
+                        {t(contentError)}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

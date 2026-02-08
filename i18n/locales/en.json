@@ -35,5 +35,31 @@
     },
     "toast": {
         "savedToAlbum": "Saved to album"
+    },
+    "agreement": {
+        "title": "Welcome",
+        "description": "To provide you with better service, please read and agree to the following agreements",
+        "agreePrefix": "I have read and agree to",
+        "userAgreement": "User Agreement",
+        "privacyPolicy": "Privacy Policy",
+        "and": "and",
+        "agreeButton": "Agree and Continue",
+        "pleaseAgree": "Please agree to the User Agreement and Privacy Policy first"
+    },
+    "settings": {
+        "title": "Settings",
+        "back": "Back",
+        "version": "Version",
+        "disclaimer": "Disclaimer",
+        "disclaimerText": "This app is for entertainment purposes only. All diagnosis results are generated based on preset algorithms and do not represent any professional opinions or advice.",
+        "privacyPolicy": "Privacy Policy",
+        "privacyPolicyUrl": "https://www.xieyimao.com/doc/detailen/token/1770029090_6507",
+        "userAgreement": "User Agreement",
+        "userAgreementUrl": "https://www.xieyimao.com/doc/detailen/token/1770029419_1961",
+        "contact": "Contact Us",
+        "contactEmail": "support@example.com"
+    },
+    "content": {
+        "sensitiveWordDetected": "Inappropriate content detected, please modify and try again"
     }
 }

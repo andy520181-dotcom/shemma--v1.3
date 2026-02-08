@@ -1,0 +1,117 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { ChevronLeft, ExternalLink } from 'lucide-react';
+
+interface SettingsViewProps {
+    onBack: () => void;
+}
+
+export const SettingsView: React.FC<SettingsViewProps> = ({ onBack }) => {
+    const { t, i18n } = useTranslation();
+
+    // 使用国际化配置中的链接，支持中英文自动切换
+    const privacyUrl = t('settings.privacyPolicyUrl');
+    const userAgreementUrl = t('settings.userAgreementUrl');
+
+    // 从package.json获取版本号
+    const appVersion = '1.3.0';
+
+    const handleLinkClick = (url: string) => {
+        window.open(url, '_blank');
+    };
+
+    return (
+        <div className="flex flex-col h-screen overflow-hidden bg-white relative">
+            {/* Header with extra top padding for notch */}
+            <header className="shrink-0 z-30 bg-white px-4 pt-12 pb-3 flex items-center justify-between border-b border-gray-100">
+                <button
+                    onClick={onBack}
+                    className="text-ios-blue flex items-center gap-1 active:opacity-50 transition-opacity relative z-10"
+                >
+                    <ChevronLeft className="w-7 h-7 -ml-2" strokeWidth={1.5} />
+                    <span className="text-lg font-light">{t('settings.back')}</span>
+                </button>
+
+                <h1 className="absolute left-1/2 -translate-x-1/2 text-[17px] font-medium text-gray-900">
+                    {t('settings.title')}
+                </h1>
+
+                <div className="w-10"></div>
+            </header>
+
+            {/* Main Content */}
+            <main className="flex-1 overflow-y-auto px-6 py-6">
+
+                {/* App Logo & Version */}
+                <div className="flex flex-col items-center mb-8 pt-4">
+                    <div className="w-20 h-20 mb-4 rounded-[18px] overflow-hidden border border-gray-100 shadow-sm">
+                        <svg
+                            viewBox="0 0 986.65 995.37"
+                            className="w-full h-full"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <defs>
+                                <style>{`
+                  .cls-1 { fill: #fff; }
+                  .cls-2 { fill: #0f52ba; }
+                `}</style>
+                            </defs>
+                            <path className="cls-1" d="M986.65,501.81c0,121.8-44.1,233.27-117.19,319.36-90.48,106.57-225.42,174.2-376.12,174.2-73.03,0-142.35-15.87-204.7-44.36C118.35,873.2,0,701.34,0,501.81,0,229.24,220.89,8.28,493.33,8.28s493.31,220.96,493.31,493.53Z" />
+                            <path className="cls-2" d="M985.72,497.86c0,122.87-44.04,235.32-117.04,322.16-15.66-44.28-45.25-76.73-84.76-100.4-24.88-14.89-52.32-22.53-80.7-27.02-31.02-4.9-62.37-6.56-93.51-10.17-25.55-2.96-50.75-7.58-74.03-19.44-34.94-17.79-56.32-45.99-61.18-85.72-4.47-36.62,1.66-71.77,17.76-105,2.4-4.96,5.68-9.35,9.28-13.44,2.63-3,2.59-5.39,.2-8.56-9.36-12.4-14.33-26.31-13.32-42.13,.16-2.55,.57-5.11,1.01-8.88,8.81,32.62,27.16,55.29,57.58,67.03,12.59,4.86,25.79,7.13,39.15,6.88,28.42-.53,53.4,10.01,77.4,23.83,7.26,4.19,12.61,10.5,14.87,18.81,2.53,9.37,8.49,14.26,17.54,16.28,10.33,2.31,20.25,6.41,31.06,6.6,9.01,.16,16.45-3.29,22.7-9.56,2.93-2.92,5.86-5.62,9.94-6.74,2.73-.74,4.93-2.51,6.2-5,8-15.77,14.77-31.94,15-50.18,.1-7.33-2.38-13.56-7.46-18.5-33.57-32.72-59.07-71.69-83.81-111.29-2.08-3.31-3.27-6.54-2.1-10.62,.99-3.43,1.23-7.07,1.25-10.7,0-4.82-1.68-8.68-5.13-11.85-18.31-16.85-34.76-35.45-50.61-54.67-3.46-4.21-7.23-8.15-11.14-11.93-2.47-2.39-2.91-4.36-1.27-7.58,9.05-17.83,14.92-37.12,17.02-59.25,.01-.15,.06-.54,.1-1.02,0,0,.75-8.64-.73-10.19-2.41-2.51-10.93,2.15-12.08,2.79-25.87,14.39-54.34,53.51-54.34,53.51,0,0,7.62-60.37,4.79-75.04-1.54-7.94-4.4-9.65-10.49-4.7-19.08,15.52-37.65,34.55-53.9,59.41-1.7,2.61-2.83,4.6-6.37,4.76-39.81,1.9-76.58,14.83-111.94,32.6-11.96,6.02-23.3,13.13-34.07,21.18-1.29,.96-3.09,1.51-3.72,4.57,23.46-5.64,46.7-9.93,70.51-9.35-65.22,29.33-121.18,71.4-168.65,125.24-23.28,26.43-58.89,87.11-58.89,87.11,0,0,56.69-39.87,89.69-55.12-7.26,8.88-14.57,17.71-21.75,26.65-33.22,41.42-62.17,85.51-81.34,135.67-5.31,13.93-10,28.06-12.91,42.75-.44,2.27,47.84-52.39,78.15-76.04,.36,.27-4.85,10.82-7.86,15.81-22.72,37.54-42.91,76.28-54.26,119.17-4.49,16.95-8.08,55.96-6.16,56.39,2.1,.51,32.84-63.03,53.33-89.41,1.03-1.31,2.18-2.55,3.21-3.76-17.89,111.78-29.6,228.17,50.69,317.2-13.45-5.67-26.57-12.01-39.33-18.97-14.33-7.82-28.21-16.44-41.58-25.78C81.81,818.25,.38,665.48,.38,497.86,.38,222.9,220.98,0,493.06,0s492.66,222.9,492.66,497.86Z" />
+                        </svg>
+                    </div>
+                    <h2 className="text-[18px] font-medium text-gray-900 mb-1">{t('app.name')}</h2>
+                    <p className="text-[14px] text-gray-400 font-light">
+                        {t('settings.version')} {appVersion}
+                    </p>
+                </div>
+
+                {/* Disclaimer Section */}
+                <div className="mb-6 bg-gray-50 rounded-2xl p-5">
+                    <h3 className="text-[15px] font-medium text-gray-900 mb-3 flex items-center gap-2">
+                        <span className="text-lg">⚠️</span>
+                        {t('settings.disclaimer')}
+                    </h3>
+                    <p className="text-[14px] text-gray-600 leading-relaxed font-light">
+                        {t('settings.disclaimerText')}
+                    </p>
+                </div>
+
+                {/* Links Section */}
+                <div className="bg-white rounded-2xl overflow-hidden border border-gray-100">
+                    {/* Privacy Policy */}
+                    <button
+                        onClick={() => handleLinkClick(privacyUrl)}
+                        className="w-full px-5 py-4 flex items-center justify-between border-b border-gray-100 active:bg-gray-50 transition-colors"
+                    >
+                        <span className="text-[15px] text-gray-900 font-light">{t('settings.privacyPolicy')}</span>
+                        <ExternalLink className="w-4 h-4 text-gray-400" strokeWidth={2} />
+                    </button>
+
+                    {/* User Agreement */}
+                    <button
+                        onClick={() => handleLinkClick(userAgreementUrl)}
+                        className="w-full px-5 py-4 flex items-center justify-between active:bg-gray-50 transition-colors"
+                    >
+                        <span className="text-[15px] text-gray-900 font-light">{t('settings.userAgreement')}</span>
+                        <ExternalLink className="w-4 h-4 text-gray-400" strokeWidth={2} />
+                    </button>
+                </div>
+
+                {/* Contact Section */}
+                <div className="mt-6 text-center">
+                    <p className="text-[13px] text-gray-400 font-light mb-2">{t('settings.contact')}</p>
+                    <a
+                        href={`mailto:${t('settings.contactEmail')}`}
+                        className="text-[14px] text-ios-blue font-light"
+                    >
+                        {t('settings.contactEmail')}
+                    </a>
+                </div>
+
+                {/* Bottom Spacer */}
+                <div className="h-8"></div>
+            </main>
+        </div>
+    );
+};

@@ -35,5 +35,31 @@
     },
     "toast": {
         "savedToAlbum": "已保存到相册"
+    },
+    "agreement": {
+        "title": "欢迎使用",
+        "description": "为了给您提供更好的服务，请您阅读并同意以下协议",
+        "agreePrefix": "我已阅读并同意",
+        "userAgreement": "《用户协议》",
+        "privacyPolicy": "《隐私政策》",
+        "and": "和",
+        "agreeButton": "同意并继续",
+        "pleaseAgree": "请先同意用户协议和隐私政策"
+    },
+    "settings": {
+        "title": "设置",
+        "back": "返回",
+        "version": "版本",
+        "disclaimer": "免责声明",
+        "disclaimerText": "本应用仅供娱乐目的使用。所有诊断结果均基于预设算法生成，不代表任何专业意见或建议。",
+        "privacyPolicy": "隐私政策",
+        "privacyPolicyUrl": "https://www.xieyimao.com/doc/detailzh/token/1770029090_6507",
+        "userAgreement": "用户协议",
+        "userAgreementUrl": "https://www.xieyimao.com/doc/detailzh/token/1770029419_1961",
+        "contact": "联系我们",
+        "contactEmail": "support@example.com"
+    },
+    "content": {
+        "sensitiveWordDetected": "检测到不当内容，请修改后再试"
     }
 }

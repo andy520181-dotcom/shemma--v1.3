@@ -7,6 +7,8 @@ import { ResultView } from './components/ResultView';
 import { Toast } from './components/Toast';
 import { SplashView } from './components/SplashView';
 import { AdView } from './components/AdView';
+import { SettingsView } from './components/SettingsView';
+import { AgreementView } from './components/AgreementView';
 import { getAdConfig } from './services/adService';
 import { AdConfig } from './types/ad';
 
@@ -37,6 +39,13 @@ const App: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("已保存到相册");
   const [isLoading, setIsLoading] = useState(false);
+
+  // 用户协议同意状态
+  const [hasAgreed, setHasAgreed] = useState<boolean>(() => {
+    // 从localStorage读取用户是否已同意
+    const agreed = localStorage.getItem('userAgreementAccepted');
+    return agreed === 'true';
+  });
 
   // 检测 i18n 初始化完成
   useEffect(() => {
@@ -139,6 +148,8 @@ const App: React.FC = () => {
   // 渲染当前视图
   const renderCurrentView = () => {
     switch (currentView) {
+      case AppView.AGREEMENT:
+        return <AgreementView onAgree={handleAgreementAccept} />;
       case AppView.HOME:
         return (
           <HomeView
@@ -167,6 +178,12 @@ const App: React.FC = () => {
             }}
           />
         ) : null;
+      case AppView.SETTINGS:
+        return (
+          <SettingsView
+            onBack={() => setCurrentView(AppView.HOME)}
+          />
+        );
       default:
         return null;
     }
@@ -184,7 +201,14 @@ const App: React.FC = () => {
   const handleSplashComplete = async () => {
     setShowSplash(false);
 
-    // 加载广告配置
+    // 检查用户是否已同意协议
+    if (!hasAgreed) {
+      // 如果未同意，显示协议页面
+      setCurrentView(AppView.AGREEMENT);
+      return;
+    }
+
+    // 如果已同意，加载广告配置
     try {
       const config = await getAdConfig();
       console.log('广告配置:', config);
@@ -196,6 +220,30 @@ const App: React.FC = () => {
     } catch (error) {
       console.error('加载广告配置失败:', error);
       // 失败直接进入主页
+    }
+  };
+
+  // 用户同意协议处理
+  const handleAgreementAccept = async () => {
+    // 保存同意状态到localStorage
+    localStorage.setItem('userAgreementAccepted', 'true');
+    setHasAgreed(true);
+
+    // 加载广告配置
+    try {
+      const config = await getAdConfig();
+      console.log('广告配置:', config);
+
+      if (config.enabled) {
+        setAdConfig(config);
+        setShowAd(true);
+      } else {
+        setCurrentView(AppView.HOME);
+      }
+    } catch (error) {
+      console.error('加载广告配置失败:', error);
+      // 失败直接进入主页
+      setCurrentView(AppView.HOME);
     }
   };
 

@@ -1,9 +1,11 @@
 export enum AppView {
   SPLASH = 'SPLASH',
+  AGREEMENT = 'AGREEMENT',
   LOGIN = 'LOGIN',
   HOME = 'HOME',
   RESULT = 'RESULT',
-  SHARE = 'SHARE'
+  SHARE = 'SHARE',
+  SETTINGS = 'SETTINGS'
 }
 
 export interface DiagnosisResult {

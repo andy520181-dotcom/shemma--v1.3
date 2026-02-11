@@ -330,10 +330,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="w-full flex flex-col items-center shrink-0 mt-[376px]">
             <button
               onClick={onStart}
-              disabled={!avatar || isLoading}
+              disabled={isLoading}
               className={`
                         w-full max-w-[260px] h-[56px] rounded-full flex items-center justify-center text-[18px] font-medium tracking-wide transition-all duration-300
-                        ${avatar && !isLoading
+                        ${!isLoading
                   ? 'bg-gray-100 text-[#1C1C1E] hover:bg-gray-200 active:scale-[0.98] shadow-sm'
                   : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
                 }
@@ -349,7 +349,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               )}
             </button>
 
-            <p className="mt-4 text-[14px] text-[#333333] font-light tracking-wide">
+            <p className="mt-4 text-[12px] text-[#333333] font-light tracking-wide text-center whitespace-pre-line">
               {t('home.bottomHint')}
             </p>
           </div>

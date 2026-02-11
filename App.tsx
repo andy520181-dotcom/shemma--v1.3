@@ -11,6 +11,7 @@ import { SettingsView } from './components/SettingsView';
 import { AgreementView } from './components/AgreementView';
 import { getAdConfig } from './services/adService';
 import { AdConfig } from './types/ad';
+import { getDefaultAvatarDataUrl } from './utils/defaultAvatar';
 
 const App: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -101,12 +102,8 @@ const App: React.FC = () => {
   };
 
   const handleStartAnalysis = async () => {
-    if (!selectedImage) {
-      setToastMessage(t('home.uploadAvatarFirst'));
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
-      return;
-    }
+    // 如果用户没有上传头像，使用默认马头logo
+    const imageToAnalyze = selectedImage || getDefaultAvatarDataUrl();
 
     try {
       setIsLoading(true);
@@ -115,12 +112,12 @@ const App: React.FC = () => {
       audio.volume = 0.6;
       audio.load();
 
-      const result = await analyzeAvatar(selectedImage, profession);
+      const result = await analyzeAvatar(imageToAnalyze, profession);
 
       const newDiagnosis: DiagnosisResult = {
         id: Date.now().toString(),
         date: new Date().toISOString().split('T')[0],
-        image: selectedImage,
+        image: imageToAnalyze, // 使用实际分析的图片（可能是默认logo）
         type: result.type || "未知",
         fullTitle: result.fullTitle || "未知马",
         quote: result.quote || "神秘的力量让你无法被定义。",
